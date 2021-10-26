@@ -1,0 +1,68 @@
+name: "publish"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-tauri:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: check current folder
+        run: ls
+      - name: checkout other repo
+        uses: actions/checkout@v2
+        with:
+          repository: genshinsim/gsim
+          path: gsim
+      - name: setup go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "^1.17.2"
+      - name: build cmd line tool
+        run: go build
+        working-directory: ./gsim/cmd/gsim
+      - name: check files
+        run: ls ./gsim/cmd/gsim
+      - name: move to binaries folder (not windows)
+        if: matrix.platform != 'windows-latest'
+        run: cp ./gsim/cmd/gsim/gsim ./src-tauri/binaries/gsim
+      - name: move to binaries folder (windows)
+        if: matrix.platform == 'windows-latest'
+        run: cp ./gsim/cmd/gsim/gsim.exe ./src-tauri/binaries/gsim.exe
+      - name: check binaries folder
+        run: ls ./src-tauri/binaries
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17
+      - name: install Rust stable
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: install webkit2gtk (ubuntu only)
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webkit2gtk-4.0
+      - name: install app dependencies
+        run: yarn
+      - name: run move binaries
+        run: node scripts/move-binary.js
+      # - name: build tauri app
+      #   run: yarn tauri build
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: gsim-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: "gsim v__VERSION__"
+          releaseBody: "See the assets to download this version and install."
+          releaseDraft: false
+          prerelease: true

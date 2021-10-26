@@ -5,7 +5,7 @@
 
 <header>
   <div
-    class="mx-auto flex flex-wrap p-2 flex-col md:flex-row mb-3 items-center"
+    class="mx-auto flex flex-wrap p-2 flex-col md:flex-row mb-1 items-center"
   >
     <a
       class="flex title-font font-medium items-center text-white mb-4 md:mb-0"

@@ -1,7 +1,7 @@
 {
   "package": {
-    "productName": "gsimwebv2",
-    "version": "0.1.0"
+    "productName": "gsim",
+    "version": "0.1.1"
   },
   "build": {
     "distDir": "../build",

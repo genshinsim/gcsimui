@@ -94,6 +94,11 @@ export function teamToConfig(store) {
         // console.log(mainStatMap[rarity][mainKey][a.level]);
 
         let val = mainStatMap[rarity][mainKey][a.level];
+
+        //check for _
+        if (mainKey.endsWith("_")) {
+          val = val / 100
+        }
         if (a.mainStatKey in main) {
           main[a.mainStatKey] = main[a.mainStatKey] + val;
         } else {
@@ -104,7 +109,11 @@ export function teamToConfig(store) {
       //add up subs
       if (a.substats) {
         a.substats.forEach((e) => {
-          subs[e.key] += e.value;
+          let val = e.value
+          if (e.key.endsWith("_")) {
+            val = val / 100
+          }
+          subs[e.key] += val;
         });
       }
 

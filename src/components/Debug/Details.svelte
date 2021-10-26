@@ -10,6 +10,6 @@
 
 <style lang="postcss" scoped>
   .edit-content {
-    width: 50vw;
+    min-width: 40vw;
   }
 </style>

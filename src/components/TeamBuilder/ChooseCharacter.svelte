@@ -37,7 +37,7 @@
   const { close } = getContext("modal");
 </script>
 
-<div class="bg-gray-700 p-4 rounded-md shadow edit-content">
+<div class="bg-gray-700 p-2 rounded-md shadow edit-content">
   <div class="font-medium items-center text-white title-font mb-4">
     Choose a character
   </div>
@@ -65,6 +65,6 @@
 
 <style lang="postcss" scoped>
   .edit-content {
-    width: 85vw;
+    width: 90vw;
   }
 </style>

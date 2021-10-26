@@ -85,7 +85,7 @@
   </div>
 
   <div
-    class="mt-6 grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-4 lg:pl-4 lg:pr-4"
+    class="mt-2 grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-4 lg:pl-4 lg:pr-4"
   >
     <div class="xl:col-span-2 lg:col-span-1">
       <button class="btn btn-primary w-full">Save</button>

@@ -146,10 +146,9 @@
         <select
           class="p-2 w-full rounded-md bg-gray-800"
           on:change={(e) => {
-            artifact.setKey = e.target.value;
-            artifact.icon = genshindb.artifacts(e.target.value).images[
-              artifact.slotKey
-            ];
+            let key = e.target.value.replace(/[^0-9a-z]/gi, "").toLowerCase();
+            artifact.setKey = key;
+            artifact.icon = `/static/images/artifacts/${key}_${artifact.slotKey}.png`;
             onChange();
           }}
         >

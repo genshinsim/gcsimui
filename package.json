@@ -1,6 +1,6 @@
 {
-  "name": "gsimwebv2",
-  "version": "0.0.1",
+  "name": "gsimui",
+  "version": "0.1.2",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -22,6 +22,7 @@
   "type": "module",
   "dependencies": {
     "@tauri-apps/api": "^1.0.0-beta.8",
+    "axios": "^0.24.0",
     "chart.js": "^3.6.0",
     "daisyui": "^1.14.7",
     "genshin-db": "^3.11.2"

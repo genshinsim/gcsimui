@@ -60,8 +60,8 @@ fn main() {
   .add_submenu(Submenu::new(
     "Help",
     Menu::new().add_item(custom_menu("Learn More")),
-  ))
-  .add_native_item(MenuItem::Copy);
+  ));
+  // .add_native_item(MenuItem::Copy);
 
   tauri::Builder::default()
     .menu(menu)

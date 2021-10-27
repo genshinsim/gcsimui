@@ -112,7 +112,9 @@
       let d = genshindb.characters(c.key);
       c.element = d.element;
       c.name = d.name;
-      c.icon = d.images.icon;
+      c.icon = `/static/images/avatar/${d.name
+        .replace(/[^0-9a-z]/gi, "")
+        .toLowerCase()}.png`;
       c.weapontype = d.weapontype;
       //special check for lumine/aether
       if (c.key === "Traveler") {
@@ -130,7 +132,9 @@
       let c = JSON.parse(trav);
       c.name = "Aether";
       let d = genshindb.characters("Aether");
-      c.icon = d.images.icon;
+      c.icon = `/static/images/avatar/${d.name
+        .replace(/[^0-9a-z]/gi, "")
+        .toLowerCase()}.png`;
       chars.push(c);
       pos.set("Aether", chars.length - 1);
       sel.push(false);
@@ -146,7 +150,9 @@
           //set some data
           let d = genshindb.weapons(e.key);
           e.name = d.name;
-          e.icon = d.images.icon;
+          e.icon = `/static/images/weapons/${d.name
+            .replace(/[^0-9a-z]/gi, "")
+            .toLowerCase()}.png`;
           chars[index].weapon = e;
           //special check for traveler
           if (e.location === "Traveler") {
@@ -165,7 +171,9 @@
           let x = genshindb.artifacts(e.setKey);
           //set slot
           e.setKey = x.name;
-          e.icon = x.images[e.slotKey];
+          e.icon = `/static/images/artifacts/${x.name
+            .replace(/[^0-9a-z]/gi, "")
+            .toLowerCase()}_${e.slotKey}.png`;
           chars[index].artifact[e.slotKey] = e;
           //special check for traveler
           if (e.location === "Traveler") {

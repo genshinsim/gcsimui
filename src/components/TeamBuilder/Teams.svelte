@@ -19,7 +19,9 @@
       return {
         name: v,
         key: v.replace(/[^0-9a-z]/gi, "").toLowerCase(),
-        icon: x.images.icon,
+        icon: `/static/images/avatar/${v
+          .replace(/[^0-9a-z]/gi, "")
+          .toLowerCase()}.png`,
         element: x.element,
         weapontype: x.weapontype,
       };

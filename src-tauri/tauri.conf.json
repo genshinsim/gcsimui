@@ -48,7 +48,11 @@
       }
     },
     "updater": {
-      "active": false
+      "active": true,
+      "endpoints": [
+        "https://gist.githubusercontent.com/genshinsim/433cc76ced7155ee4a4d456b4ec5eea8/raw"
+      ],
+      "dialog": true
     },
     "allowlist": {
       "all": true

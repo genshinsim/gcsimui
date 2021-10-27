@@ -109,9 +109,11 @@
   let weapOptions = [];
   if (Array.isArray(weapons)) {
     weapOptions = weapons.map((v) => {
-      const image = genshindb.weapons(v).images.icon;
+      // const image = genshindb.weapons(v).images.icon;
       return {
-        icon: image,
+        icon: `/static/images/weapons/${v
+          .replace(/[^0-9a-z]/gi, "")
+          .toLowerCase()}.png`,
         name: v,
         key: v.replace(/[^0-9a-z]/gi, "").toLowerCase(),
       };

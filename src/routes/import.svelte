@@ -2,8 +2,7 @@
   import { charStore, goStore } from "../components/store";
   import genshindb from "genshin-db";
   import { goto } from "$app/navigation";
-
-  let selected = [];
+  import { parseFromGO, toKey, staticPath } from "@src/_util";
 
   const notImplemented = [
     "traveler",
@@ -22,204 +21,21 @@
     "yanfei",
   ];
 
-  function parseGO(val) {
-    if (val === "") {
-      return {
-        err: "Please paste JSON from Genshin Optimizer to continue",
-      };
-    }
-
-    //try parsing
-    let data;
-    try {
-      data = JSON.parse(val);
-    } catch (e) {
-      return {
-        err: "Invalid JSON",
-      };
-    }
-
-    //build the characters
-    let pos = new Map();
-    let chars = [];
-    let sel = [];
-    if (!data.characters) {
-      return {
-        err: "",
-        characters: [],
-      };
-    }
-    let trav = "";
-    data.characters.forEach((c, i) => {
-      pos.set(c.key, i);
-      c.weapon = {
-        key: "",
-        name: "",
-        icon: "",
-        level: 1,
-        ascension: 0,
-        refinement: 0,
-        location: c.key,
-        lock: false,
-      };
-      c.artifact = {
-        flower: {
-          level: 20,
-          setKey: "",
-          slotKey: "flower",
-          rarity: 5,
-          icon: "",
-          mainStatKey: "hp",
-          substats: [],
-        },
-        plume: {
-          level: 20,
-          setKey: "",
-          slotKey: "plume",
-          rarity: 5,
-          icon: "",
-          mainStatKey: "atk",
-          substats: [],
-        },
-        sands: {
-          level: 20,
-          setKey: "",
-          slotKey: "sands",
-          rarity: 5,
-          icon: "",
-          mainStatKey: "",
-          substats: [],
-        },
-        goblet: {
-          level: 20,
-          setKey: "",
-          slotKey: "goblet",
-          rarity: 5,
-          icon: "",
-          mainStatKey: "",
-          substats: [],
-        },
-        circlet: {
-          level: 20,
-          setKey: "",
-          slotKey: "circlet",
-          rarity: 5,
-          icon: "",
-          mainStatKey: "",
-          substats: [],
-        },
-      };
-      let d = genshindb.characters(c.key);
-      c.element = d.element;
-      c.name = d.name;
-      c.icon = `/images/avatar/${d.name
-        .replace(/[^0-9a-z]/gi, "")
-        .toLowerCase()}.png`;
-      c.weapontype = d.weapontype;
-      //special check for lumine/aether
-      if (c.key === "Traveler") {
-        c.name = "Lumine";
-        c.element = c.elementKey;
-        console.log(c);
-        trav = JSON.stringify(c);
-      }
-      chars.push(c);
-      sel.push(false);
-      // console.log("adding ", c.key);
-    });
-
-    if (trav !== "") {
-      let c = JSON.parse(trav);
-      c.name = "Aether";
-      let d = genshindb.characters("Aether");
-      c.icon = `/images/avatar/${d.name
-        .replace(/[^0-9a-z]/gi, "")
-        .toLowerCase()}.png`;
-      chars.push(c);
-      pos.set("Aether", chars.length - 1);
-      sel.push(false);
-    }
-
-    //add weapons if any
-    if (data.weapons) {
-      data.weapons.forEach((e) => {
-        if (pos.has(e.location)) {
-          console.log("adding weapon for ", e.location);
-          //grab index
-          let index = pos.get(e.location);
-          //set some data
-          let d = genshindb.weapons(e.key);
-          e.name = d.name;
-          e.icon = `/images/weapons/${d.name
-            .replace(/[^0-9a-z]/gi, "")
-            .toLowerCase()}.png`;
-          chars[index].weapon = e;
-          //special check for traveler
-          if (e.location === "Traveler") {
-            index = pos.get("Aether");
-            chars[index].weapon = e;
-          }
-        }
-      });
-    }
-
-    //add artifacts if any
-    if (data.artifacts) {
-      data.artifacts.forEach((e) => {
-        if (pos.has(e.location)) {
-          let index = pos.get(e.location);
-          let x = genshindb.artifacts(e.setKey);
-          //set slot
-          e.setKey = x.name;
-          e.icon = `/images/artifacts/${x.name
-            .replace(/[^0-9a-z]/gi, "")
-            .toLowerCase()}_${e.slotKey}.png`;
-          chars[index].artifact[e.slotKey] = e;
-          //special check for traveler
-          if (e.location === "Traveler") {
-            index = pos.get("Aether");
-            chars[index].artifact[e.slotKey] = e;
-          }
-        }
-      });
-    }
-
-    //set selected
-    selected = sel;
-
-    console.log(chars);
-
-    //sort chars by element -> name
-    chars.sort((a, b) => {
-      if (b.name > a.name) {
-        return -1;
-      }
-      if (b.name < a.name) {
-        return 1;
-      }
-      return 0;
-    });
-
-    return {
-      err: "",
-      characters: chars,
-    };
-  }
-  $: data = parseGO($goStore);
+  $: data = parseFromGO($goStore);
 
   function handleSelect(index) {
     return function () {
       //check if we're unselecting
-      if (selected[index]) {
-        selected[index] = false;
+      if (data.selected[index]) {
+        data.selected[index] = false;
         // selected = selected;
       } else {
         //other wise set to true only if we have less than 4 already true
-        const count = selected.filter(Boolean).length;
+        const count = data.selected.filter(Boolean).length;
         if (count === 4) {
           return;
         }
-        selected[index] = true;
+        data.selected[index] = true;
       }
       // console.log(selected);
       // selected = selected;
@@ -232,7 +48,7 @@
       return;
     }
     let next = [];
-    selected.forEach((e, i) => {
+    data.selected.forEach((e, i) => {
       if (e && i < data.characters.length) {
         next.push(data.characters[i]);
       }
@@ -266,9 +82,9 @@
   {#if data.err === ""}
     {#if data.characters.length > 0}
       <div class="grid grid-cols-12 gap-2 ">
-        {#each data.characters as char, index}
+        {#each data.characters as char, index (index)}
           <div
-            class={selected[index]
+            class={data.selected[index]
               ? "selected-char-box overflow-hidden rounded-md border-2"
               : notImplemented.includes(char.key.toLowerCase())
               ? "selected-char-box overflow-hidden rounded-md cursor-not-allowed"
@@ -281,9 +97,9 @@
             }}
           >
             <img
-              src={char.icon}
+              src={`${staticPath.avatar}/${char.key}.png`}
               alt={char.name}
-              class={selected[index]
+              class={data.selected[index]
                 ? "object-contain opacity-100"
                 : "object-contain opacity-50"}
             />
@@ -296,7 +112,8 @@
     <button
       class="btn btn-primary w-full"
       on:click={handleImport}
-      disabled={selected.filter(Boolean).length === 0}>Import to Builder</button
+      disabled={data.selected.filter(Boolean).length === 0}
+      >Import to Builder</button
     >
   {/if}
   <div

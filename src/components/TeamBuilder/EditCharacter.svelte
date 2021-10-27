@@ -1,5 +1,5 @@
 <script>
-  import { ascLvlMin, charAscLvlCap } from "@src/_util";
+  import { staticPath, ascLvlMin, charAscLvlCap } from "@src/_util";
   import genshindb from "genshin-db";
 
   export let lvl = 1;
@@ -11,19 +11,14 @@
     burst: 1,
   };
   export let name = "";
+  export let key = "";
   export let onChange = (v) => {};
 
   let consImages = ["", "", "", "", "", ""];
 
   $: {
-    let x = genshindb.constellations(name);
-    if (x) {
-      consImages[0] = x.images.c1;
-      consImages[1] = x.images.c2;
-      consImages[2] = x.images.c3;
-      consImages[3] = x.images.c4;
-      consImages[4] = x.images.c5;
-      consImages[5] = x.images.c6;
+    for (let i = 0; i < 6; i++) {
+      consImages[i] = `${staticPath.cons}/${key}_c${i + 1}.png`;
     }
   }
 

@@ -2,7 +2,7 @@
   import Character from "./Character.svelte";
   import ChooseCharacter from "./ChooseCharacter.svelte";
   import { charStore } from "../store.js";
-  import { blankChar } from "@src/_util";
+  import { staticPath, toKey, blankChar } from "@src/_util";
   import { getContext } from "svelte";
   import genshindb from "genshin-db";
   import Save from "./Save.svelte";
@@ -18,10 +18,8 @@
       let x = genshindb.characters(v);
       return {
         name: v,
-        key: v.replace(/[^0-9a-z]/gi, "").toLowerCase(),
-        icon: `/images/avatar/${v
-          .replace(/[^0-9a-z]/gi, "")
-          .toLowerCase()}.png`,
+        key: toKey(v),
+        icon: `${staticPath.avatar}/${toKey(v)}.png`,
         element: x.element,
         weapontype: x.weapontype,
       };

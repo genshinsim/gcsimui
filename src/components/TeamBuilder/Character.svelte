@@ -1,6 +1,6 @@
 <script>
   import genshindb from "genshin-db";
-  import { statToString, charAscLvlCap } from "@src/_util";
+  import { staticPath, toKey, statToString, charAscLvlCap } from "@src/_util";
   import { charStore } from "../store.js";
   import { getContext } from "svelte";
   import EditCharacter from "./EditCharacter.svelte";
@@ -111,11 +111,9 @@
     weapOptions = weapons.map((v) => {
       // const image = genshindb.weapons(v).images.icon;
       return {
-        icon: `/images/weapons/${v
-          .replace(/[^0-9a-z]/gi, "")
-          .toLowerCase()}.png`,
+        icon: `${staticPath.weapons}/${toKey(v)}.png`,
         name: v,
-        key: v.replace(/[^0-9a-z]/gi, "").toLowerCase(),
+        key: toKey(v),
       };
     });
   }
@@ -131,6 +129,7 @@
   const editCharacter = () => {
     open(EditCharacter, {
       name: char.name,
+      key: char.key,
       lvl: char.level,
       asc: char.ascension,
       cons: char.constellation,

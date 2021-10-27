@@ -7,7 +7,7 @@
   import IconCR from "../Icons/IconCR.svelte";
   import IconCD from "../Icons/IconCD.svelte";
   import genshindb from "genshin-db";
-  import { slotMainStat, statToString } from "@src/_util";
+  import { toKey, staticPath, slotMainStat, statToString } from "@src/_util";
 
   export let artifact = {
     setKey: "", //e.g. "GladiatorsFinale"
@@ -146,9 +146,9 @@
         <select
           class="p-2 w-full rounded-md bg-gray-800"
           on:change={(e) => {
-            let key = e.target.value.replace(/[^0-9a-z]/gi, "").toLowerCase();
+            let key = toKey(e.target.value);
             artifact.setKey = key;
-            artifact.icon = `/images/artifacts/${key}_${artifact.slotKey}.png`;
+            artifact.icon = `${staticPath.artifacts}/${key}_${artifact.slotKey}.png`;
             onChange();
           }}
         >

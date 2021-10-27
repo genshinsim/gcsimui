@@ -93,7 +93,7 @@
     <div class="ml-4 mr-4 rounded-md">
       <input
         type="checkbox"
-        checked="checked"
+        checked={$opt.debug}
         class="toggle toggle-primary"
         on:change={(e) => {
           opt.update((store) => {

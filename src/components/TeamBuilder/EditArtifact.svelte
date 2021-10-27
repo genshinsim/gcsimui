@@ -76,7 +76,6 @@
   }
 
   var regDec = new RegExp(/^(\d+)?(\.)?\d+$/);
-  const pattern = `^(\d+)?(\.)?\d+$`;
 
   const onChange = () => {
     handleChange(artifact);
@@ -219,19 +218,20 @@
             >
               <input
                 type="number"
+                step="any"
                 placeholder="enter percentage"
                 class="w-40 p-2 rounded-l-md bg-gray-800 text-right focus:outline-none invalid:text-red-500"
-                {pattern}
                 value={sub.val_}
                 on:input={(e) => {
                   const val = e.target.value;
                   //first we need to sanitize the value
                   if (regDec.test(val)) {
+                    e.target.setCustomValidity("");
                     sub.val_ = parseFloat(val);
-                  } else {
-                    sub.val_ = 0;
+                    onSubsChange();
+                    return;
                   }
-                  onSubsChange();
+                  e.target.setCustomValidity("invalid input");
                 }}
               />
               <div
@@ -259,19 +259,20 @@
             >
               <input
                 type="number"
+                step="any"
                 placeholder="enter amount"
                 class="w-40 p-2 rounded-l-md bg-gray-800 text-right focus:outline-none invalid:text-red-500"
-                {pattern}
                 value={sub.val}
                 on:input={(e) => {
                   const val = e.target.value;
                   //first we need to sanitize the value
                   if (regDec.test(val)) {
                     sub.val = parseFloat(val);
-                  } else {
-                    sub.val = 0;
+                    e.target.setCustomValidity("");
+                    onSubsChange();
+                    return;
                   }
-                  onSubsChange();
+                  e.target.setCustomValidity("invalid input");
                 }}
               />
               <div class="p-1 w-6 rounded-r-md bg-gray-800 items-center flex" />

@@ -8,7 +8,7 @@
     raw: "",
     event: "",
     char: "",
-    color: "bg-gray-600",
+    color: "#6B7280",
     icon: "circle",
     amount: 0,
     target: "",
@@ -32,10 +32,15 @@
   };
 
   //display logic
-  const css = `flex flex-row gap-2 items-center pl-1 pr-1 pt-px pb-px rounded-md m-1 cursor-pointer bg-${data.color}`;
+  const css = ` bg-${data.color}`;
+  console.log(css);
 </script>
 
-<div class={css} on:click={handleClick}>
+<div
+  class="flex flex-row gap-2 items-center pl-1 pr-1 pt-px pb-px rounded-md m-1 cursor-pointer"
+  style={`background-color: ${data.color}`}
+  on:click={handleClick}
+>
   <span class="material-icons text-sm">
     {data.icon}
   </span>
@@ -46,13 +51,3 @@
     {data.target}
   </div>
 </div>
-
-<style>
-  .bg-test {
-    @apply bg-indigo-400;
-  }
-  .test-orange {
-    --tw-bg-opacity: 1;
-    background-color: #ec7d65;
-  }
-</style>

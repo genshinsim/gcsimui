@@ -231,29 +231,29 @@ export function eventColor(eve) {
     case "procs":
       return "";
     case "damage":
-      return "blue-600";
+      return "#2563EB";
     case "hurt":
       return "";
     case "heal":
       return "";
     case "calc":
-      return "test";
+      return "#9D174D";
     case "reaction":
       return "";
     case "element":
-      return "yellow-700";
+      return "#3F60A6";
     case "snapshot":
-      return "indigo-600";
+      return "#6366F1";
     case "snapshot_mods":
-      return "indigo-600";
+      return "#818CF8";
     case "status":
       return "";
     case "action":
-      return "gray-500";
+      return "#AB5F45";
     case "queue":
       return "";
     case "energy":
-      return "green-600";
+      return "#036345";
     case "character":
       return "";
     case "enemy":
@@ -351,7 +351,7 @@ export function parseLog(active, team, log) {
     };
 
     if (e.color === "") {
-      e.color = "gray-500";
+      e.color = "#6B7280";
     }
 
     //set icon/color etc... based one vent

@@ -62,7 +62,7 @@
               {#each slot.filter((e) => {
                 //if can't find in log settings then skip it
                 return $logSettings.indexOf(e.event) > -1;
-              }) as e}
+              }) as e, index (index)}
                 <Item data={e} />
               {/each}
             </td>

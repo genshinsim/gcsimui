@@ -28,6 +28,16 @@
     "icd",
   ];
 
+  const defaults = ["damage", "element", "action", "energy"];
+
+  var handleClear = () => {
+    logSettings.set([]);
+  };
+
+  var handleSetDefault = () => {
+    logSettings.set(defaults);
+  };
+
   var toggleLogEvent = (val) => {
     logSettings.update((store) => {
       //if not in store already then add it in
@@ -56,12 +66,12 @@
           class="checkbox"
           on:change={() => toggleLogEvent(o)}
         />
-        <span class={`text-${eventColor(o)}`}>{o}</span>
+        <span class="font-medium" style={`color: ${eventColor(o)}`}>{o}</span>
       </div>
     {/each}
   </div>
   <div class="grid grid-cols-2 p-2 gap-2 mt-2">
-    <button class="btn btn-info">Defaults</button>
-    <button class="btn btn-error">Clear</button>
+    <button class="btn btn-info" on:click={handleSetDefault}>Defaults</button>
+    <button class="btn btn-error" on:click={handleClear}>Clear</button>
   </div>
 </div>

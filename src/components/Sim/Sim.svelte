@@ -15,6 +15,7 @@
   import Options from "./Options.svelte";
   import { onMount } from "svelte";
   import { teamToConfig } from "./convert";
+  import Help from "./Help.svelte";
 
   let Command, writeFile, tempdir, readTextFile;
 
@@ -30,6 +31,10 @@
 
   const handleOpenOpts = () => {
     open(Options);
+  };
+
+  const handleOpenHelp = () => {
+    open(Help);
   };
 
   const handleLoadTeam = () => {
@@ -205,7 +210,7 @@
         </button>
       </div>
       <div>
-        <button class="btn btn-info w-48">
+        <button class="btn btn-info w-48" on:click={handleOpenHelp}>
           <svg
             aria-hidden="true"
             focusable="false"

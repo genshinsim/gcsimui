@@ -148,7 +148,7 @@
           on:change={(e) => {
             let key = e.target.value.replace(/[^0-9a-z]/gi, "").toLowerCase();
             artifact.setKey = key;
-            artifact.icon = `/static/images/artifacts/${key}_${artifact.slotKey}.png`;
+            artifact.icon = `/images/artifacts/${key}_${artifact.slotKey}.png`;
             onChange();
           }}
         >

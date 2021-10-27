@@ -111,7 +111,7 @@
     weapOptions = weapons.map((v) => {
       // const image = genshindb.weapons(v).images.icon;
       return {
-        icon: `/static/images/weapons/${v
+        icon: `/images/weapons/${v
           .replace(/[^0-9a-z]/gi, "")
           .toLowerCase()}.png`,
         name: v,

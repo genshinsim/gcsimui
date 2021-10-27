@@ -112,7 +112,7 @@
       let d = genshindb.characters(c.key);
       c.element = d.element;
       c.name = d.name;
-      c.icon = `/static/images/avatar/${d.name
+      c.icon = `/images/avatar/${d.name
         .replace(/[^0-9a-z]/gi, "")
         .toLowerCase()}.png`;
       c.weapontype = d.weapontype;
@@ -132,7 +132,7 @@
       let c = JSON.parse(trav);
       c.name = "Aether";
       let d = genshindb.characters("Aether");
-      c.icon = `/static/images/avatar/${d.name
+      c.icon = `/images/avatar/${d.name
         .replace(/[^0-9a-z]/gi, "")
         .toLowerCase()}.png`;
       chars.push(c);
@@ -150,7 +150,7 @@
           //set some data
           let d = genshindb.weapons(e.key);
           e.name = d.name;
-          e.icon = `/static/images/weapons/${d.name
+          e.icon = `/images/weapons/${d.name
             .replace(/[^0-9a-z]/gi, "")
             .toLowerCase()}.png`;
           chars[index].weapon = e;
@@ -171,7 +171,7 @@
           let x = genshindb.artifacts(e.setKey);
           //set slot
           e.setKey = x.name;
-          e.icon = `/static/images/artifacts/${x.name
+          e.icon = `/images/artifacts/${x.name
             .replace(/[^0-9a-z]/gi, "")
             .toLowerCase()}_${e.slotKey}.png`;
           chars[index].artifact[e.slotKey] = e;

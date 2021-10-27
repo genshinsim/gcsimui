@@ -19,7 +19,7 @@
       return {
         name: v,
         key: v.replace(/[^0-9a-z]/gi, "").toLowerCase(),
-        icon: `/static/images/avatar/${v
+        icon: `/images/avatar/${v
           .replace(/[^0-9a-z]/gi, "")
           .toLowerCase()}.png`,
         element: x.element,

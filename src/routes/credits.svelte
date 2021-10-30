@@ -29,4 +29,8 @@
       <li>You, for using this app.</li>
     </ul>
   </div>
+  <div class="mt-4">
+    gcsim is not affiliated with miHoYo. Genshin Impact, game content and
+    materials are trademarks and copyrights of miHoYo.
+  </div>
 </div>

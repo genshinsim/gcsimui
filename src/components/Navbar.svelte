@@ -11,7 +11,7 @@
       class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
       href="/"
     >
-      <span class="ml-3 text-xl border-b-2 border-transparent">gsim</span>
+      <span class="ml-3 text-xl border-b-2 border-transparent">gcsim</span>
     </a>
     <nav
       class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center"
@@ -20,13 +20,13 @@
         class={$page.path === "/"
           ? "mr-5 hover:text-white border-b-2"
           : "mr-5 hover:text-white border-b-2 border-transparent"}
-        href="/">Sim</a
+        href="/">Team</a
       >
       <a
-        class={$page.path === "/builder"
+        class={$page.path === "/sim"
           ? "mr-5 hover:text-white border-b-2"
           : "mr-5 hover:text-white border-b-2 border-transparent"}
-        href="/builder">Builder</a
+        href="/sim">Sim</a
       >
       <a
         class={$page.path === "/import"

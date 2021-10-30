@@ -14,9 +14,9 @@ fn main() {
   let menu = Menu::new()
   .add_submenu(Submenu::new(
     // on macOS first menu is always app name
-    "gsim",
+    "gcsim",
     Menu::new()
-      .add_native_item(MenuItem::About("gsim".to_string()))
+      .add_native_item(MenuItem::About("gcsim".to_string()))
       .add_native_item(MenuItem::Separator)
       .add_native_item(MenuItem::Services)
       .add_native_item(MenuItem::Separator)

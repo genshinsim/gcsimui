@@ -1,5 +1,5 @@
 <script>
-  import Sim from "@components/Sim/Sim.svelte";
+  import Teams from "../components/TeamBuilder/Teams.svelte";
 </script>
 
-<Sim />
+<Teams />

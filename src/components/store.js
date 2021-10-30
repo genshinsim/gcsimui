@@ -69,13 +69,14 @@ const initialOpt = {
   i: 1000,
   d: 90,
   w: 24,
+  useBuilder: true,
   multi: false, //not used yet
   calc: false, //not used yet
 };
 
 //saved sim settings
-const storedSimSettings =
-  JSON.parse(browser && localStorage.getItem("simSettings")) || initialOpt;
+let saved = JSON.parse(browser && localStorage.getItem("simSettings")) || {};
+const storedSimSettings = Object.assign({}, initialOpt, saved);
 export const opt = writable(browser && storedSimSettings);
 opt.subscribe(
   (val) => browser && (localStorage.simSettings = JSON.stringify(val))

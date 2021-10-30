@@ -32,8 +32,8 @@
   };
 
   //display logic
-  const css = ` bg-${data.color}`;
-  console.log(css);
+  // const css = ` bg-${data.color}`;
+  // console.log(css);
 </script>
 
 <div

@@ -634,7 +634,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chart.js@^3.6.0:
+chart.js@^3.5.0, chart.js@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.6.0.tgz#a87fce8431d4e7c5523d721f487f53aada1e42fe"
   integrity sha512-iOzzDKePL+bj+ccIsVAgWQehCXv8xOKGbaU2fO/myivH736zcx535PGJzQGanvcSGVOqX6yuLZsN3ygcQ35UgQ==
@@ -3974,6 +3974,13 @@ supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+svelte-chartjs@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/svelte-chartjs/-/svelte-chartjs-1.1.1.tgz#6127a687dff4b0988b2cb97e4746d56139aea53f"
+  integrity sha512-pruCMGZd0e630a28ptyIf2MVQKvKiQ1KL7psHlUQhwhlvifJCKD/yQ/CRdsjkq3jZLRMN/DdB+HsKQXxoFoK7g==
+  dependencies:
+    chart.js "^3.5.0"
 
 svelte-hmr@^0.14.7:
   version "0.14.7"

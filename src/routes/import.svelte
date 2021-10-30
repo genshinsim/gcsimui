@@ -1,6 +1,5 @@
 <script>
   import { charStore, goStore } from "../components/store";
-  import genshindb from "genshin-db";
   import { goto } from "$app/navigation";
   import { parseFromGO, toKey, staticPath } from "@src/_util";
 
@@ -56,7 +55,7 @@
     console.log(next);
     charStore.set(next);
     if (next.length > 0) {
-      goto("/builder");
+      goto("/");
     }
   }
 </script>
@@ -72,7 +71,7 @@
     >
     tab, click on <strong>Copy to Clipboard</strong> button. Paste the result in
     the text area below. Select up to 4 characters from the list below and click
-    Import to Builder to finish import.
+    Import Team to finish import.
     <strong class="text-yellow-400"
       >This will overwrite any existing team. This action cannot be reversed.
       You have been warned</strong
@@ -112,8 +111,7 @@
     <button
       class="btn btn-primary w-full"
       on:click={handleImport}
-      disabled={data.selected.filter(Boolean).length === 0}
-      >Import to Builder</button
+      disabled={data.selected.filter(Boolean).length === 0}>Import Team</button
     >
   {/if}
   <div

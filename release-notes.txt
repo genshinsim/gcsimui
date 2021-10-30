@@ -1,0 +1,19 @@
+0.2.0
+-----
+
+- By default, sim will now use team from the team builder. This can be turned off in the options (advanced users).
+  The team config screen has been removed to reflect this.
+- Graphs have been added to results
+- Name changed to gcsim to reflect new website
+
+
+0.1.4
+-----
+
+- Updated app to include all image assets
+
+
+0.1.3
+-----
+
+- Added auto updater

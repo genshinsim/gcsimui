@@ -7,6 +7,7 @@
   import genshindb from "genshin-db";
   import Save from "./Save.svelte";
   import Load from "./Load.svelte";
+  import { goto } from "$app/navigation";
 
   // const existing = $charStore.map((e) => {
   //   return e.name;
@@ -92,17 +93,20 @@
     {/if}
   </div>
 
-  <div
-    class="mt-2 grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-4 lg:pl-4 lg:pr-4"
-  >
-    <div class="xl:col-span-2 lg:col-span-1">
+  <div class="mt-2 flex flex-row sm:flex-wrap gap-4 lg:pl-4 lg:pr-4">
+    <div class=" flex-1">
       <button class="btn btn-primary w-full" on:click={handleOpenSave}
         >Save</button
       >
     </div>
-    <div class="xl:col-span-2 lg:col-span-1">
+    <div class="flex-1">
       <button class="btn btn-secondary w-full" on:click={handleOpenLoad}
         >Load</button
+      >
+    </div>
+    <div class="flex-1">
+      <button class="btn btn-info w-full" on:click={() => goto("/import")}
+        >Import</button
       >
     </div>
   </div>

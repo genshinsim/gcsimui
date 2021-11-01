@@ -1,6 +1,12 @@
 0.2.1
 -----
 
+- Merged PR#32. Fix Raiden/Xingqiu/Bennett snapshot timing
+
+
+0.2.1
+-----
+
 - Fixed Primordial Jade Cutter bug where it was incorrectly adding atk% instead of flat atk
 
 0.2.0

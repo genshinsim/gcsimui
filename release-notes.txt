@@ -1,6 +1,12 @@
 0.2.1
 -----
 
+- Fixed Raiden's c2 and cleaned up Sucrose A2 log (https://github.com/genshinsim/gsim/commit/780753b29d8d8905a6cb587e2297e2a9972d07db)
+
+
+0.2.1
+-----
+
 - Merged PR#32. Fix Raiden/Xingqiu/Bennett snapshot timing
 
 

@@ -61,8 +61,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: gsim-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
-          releaseName: "gsim v__VERSION__"
+          tagName: gcsim-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          releaseName: "gcsim v__VERSION__"
           releaseBody: "See the assets to download this version and install."
           releaseDraft: false
           prerelease: true
+  update-latest:
+    needs: publish-tauri
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install jq
+        run: sudo apt-get install jq -y
+      - name: run shell script
+        run: chmod u+x ./scripts/latest.sh && ./scripts/latest.sh
+      - uses: popsiclestick/gist-sync-action@v1.2.0
+        id: sync
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/genshinsim/433cc76ced7155ee4a4d456b4ec5eea8
+          gist_title: gcsim latest
+          gist_description: gcsim latest release
+          github_file: ./latest.json

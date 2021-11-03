@@ -1,3 +1,8 @@
+0.2.7
+-----
+
+- Fixed Sara C6, Xingqiu orbital, VH procs, and other minor bugs (https://github.com/genshinsim/gsim/pull/48)
+
 0.2.6
 -----
 

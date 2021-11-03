@@ -3,7 +3,6 @@
   export let onChange = (v) => {};
 
   const notImplemented = [
-    "akuoumaru",
     "amberbead",
     "apprenticesnotes",
     "beginnersprotector",
@@ -27,7 +26,6 @@
     "luxurioussealord",
     "messenger",
     "mitternachtswaltz",
-    "mouunsmoon",
     "oldmercspal",
     "otherworldlystory",
     "pocketgrimoire",
@@ -44,7 +42,6 @@
     "travelershandysword",
     "twinnephrite",
     "wastergreatsword",
-    "wavebreakersfin",
     "whiteirongreatsword",
     "whitetassel",
     "wineandsong",

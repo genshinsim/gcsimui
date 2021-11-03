@@ -1,3 +1,8 @@
+0.2.8
+-----
+
+- Add VirusTotal scan to releases.
+
 0.2.7
 -----
 

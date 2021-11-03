@@ -1,3 +1,8 @@
+0.2.6
+-----
+
+- Fixed a bug where UI was running every simulation with R1 weapon only.
+
 0.2.5
 -----
 

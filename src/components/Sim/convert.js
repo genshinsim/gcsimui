@@ -48,7 +48,7 @@ export function teamToConfig(store) {
     } else {
       weap_stats = gd_weap.stats(char.weapon.level);
     }
-    str += `weapon+=${c_key} label="${w_key}" atk=${weap_stats.attack} `;
+    str += `weapon+=${c_key} label="${w_key}" atk=${weap_stats.attack} refine=${char.weapon.refinement} `;
     //check if it has a substat first
     if (gd_weap.substat !== "") {
       str += `${simStat(gd_w_subs(gd_weap.substat))}=${weap_stats.specialized}`;
@@ -97,7 +97,7 @@ export function teamToConfig(store) {
 
         //check for _
         if (mainKey.endsWith("_")) {
-          val = val / 100
+          val = val / 100;
         }
         if (a.mainStatKey in main) {
           main[a.mainStatKey] = main[a.mainStatKey] + val;
@@ -109,9 +109,9 @@ export function teamToConfig(store) {
       //add up subs
       if (a.substats) {
         a.substats.forEach((e) => {
-          let val = e.value
+          let val = e.value;
           if (e.key.endsWith("_")) {
-            val = val / 100
+            val = val / 100;
           }
           subs[e.key] += val;
         });

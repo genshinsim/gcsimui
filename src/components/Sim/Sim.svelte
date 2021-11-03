@@ -55,6 +55,8 @@
     // console.log(cust);
     cfg = cust + "\n" + cfg;
 
+    console.log(cfg);
+
     let path = "";
 
     tempdir()

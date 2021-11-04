@@ -1,3 +1,14 @@
+0.2.9
+-----
+
+- Fixed weapons that add elemental damage incorrectly also adding to all damage:
+  - Mappa
+  - Skyward Atlas
+  - Kitain Cross
+  - Mistsplitter
+  - Widsith
+  - Lost Prayer
+
 0.2.8
 -----
 

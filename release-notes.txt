@@ -1,3 +1,9 @@
+0.2.11
+------
+
+- Fixed Ningguang charge attack
+
+
 0.2.10
 ------
 

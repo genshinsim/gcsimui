@@ -1,3 +1,12 @@
+0.2.12
+------
+
+- Various bug fixes:
+  - Archaic petra
+  - Diluc infusion timing/snapshot timing
+  - Fischl A4
+  - Kitain buffing wrong thing
+
 0.2.11
 ------
 

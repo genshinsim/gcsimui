@@ -1,3 +1,14 @@
+0.2.13
+------
+
+- Various bug fixes:
+  - Fix Zhongli Q multiplier
+  - Fix Ningguang C2 reset at start
+  - Fix Ningguang skill multiplier incorrect
+  - Fix Prototype Archaic not activating properly
+  - Fix Fischl Oz number of hits
+  - Add Sea-Lord and Nagamasa
+
 0.2.12
 ------
 

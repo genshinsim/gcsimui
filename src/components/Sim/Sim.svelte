@@ -65,13 +65,13 @@
         console.log(path);
         return writeFile({
           contents: cfg,
-          path: path + "/gsim-input.txt",
+          path: path + "/gcsim-input.txt",
         });
       })
       .then(() => {
-        const command = Command.sidecar("gsim", [
-          "-c=" + path + "/gsim-input.txt",
-          "-js=" + path + "/gsim-out.txt",
+        const command = Command.sidecar("gcsim", [
+          "-c=" + path + "/gcsim-input.txt",
+          "-js=" + path + "/gcsim-out.txt",
           "-dh=false",
         ]);
         return command.execute();
@@ -85,7 +85,7 @@
           });
           return Promise.reject("error running sim");
         } else {
-          return readTextFile(path + "gsim-out.txt");
+          return readTextFile(path + "gcsim-out.txt");
         }
       })
       .then((data) => {

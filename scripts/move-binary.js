@@ -20,8 +20,8 @@ async function main() {
     console.error("Failed to determine platform target triple");
   }
   fs.renameSync(
-    `src-tauri/binaries/gsim${extension}`,
-    `src-tauri/binaries/gsim-${targetTriple}${extension}`
+    `src-tauri/binaries/gcsim${extension}`,
+    `src-tauri/binaries/gcsim-${targetTriple}${extension}`
   );
 }
 

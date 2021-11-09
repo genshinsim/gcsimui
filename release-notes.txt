@@ -1,3 +1,9 @@
+0.2.14
+------
+
+- Rebrand app name
+
+
 0.2.13
 ------
 
@@ -48,7 +54,7 @@
 0.2.7
 -----
 
-- Fixed Sara C6, Xingqiu orbital, VH procs, and other minor bugs (https://github.com/genshinsim/gsim/pull/48)
+- Fixed Sara C6, Xingqiu orbital, VH procs, and other minor bugs (https://github.com/genshinsim/gcsim/pull/48)
 
 0.2.6
 -----
@@ -71,7 +77,7 @@
 0.2.3
 -----
 
-- Fixed Raiden's c2 and cleaned up Sucrose A2 log (https://github.com/genshinsim/gsim/commit/780753b29d8d8905a6cb587e2297e2a9972d07db)
+- Fixed Raiden's c2 and cleaned up Sucrose A2 log (https://github.com/genshinsim/gcsim/commit/780753b29d8d8905a6cb587e2297e2a9972d07db)
 
 
 0.2.2

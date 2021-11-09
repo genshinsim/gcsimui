@@ -18,7 +18,7 @@
         href="/#"
         on:click={(e) => {
           e.preventDefault();
-          open("https://github.com/genshinsim/gsim/wiki/Configuration");
+          open("https://github.com/genshinsim/gcsim/wiki/Configuration");
         }}>wiki</a
       >.
     </p>
@@ -36,7 +36,7 @@
         href="/#"
         on:click={(e) => {
           e.preventDefault();
-          open("https://github.com/genshinsim/gsim/wiki/Action-List");
+          open("https://github.com/genshinsim/gcsim/wiki/Action-List");
         }}>wiki</a
       >.
     </p>

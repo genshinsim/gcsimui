@@ -19,23 +19,23 @@ jobs:
       - name: checkout other repo
         uses: actions/checkout@v2
         with:
-          repository: genshinsim/gsim
-          path: gsim
+          repository: genshinsim/gcsim
+          path: gcsim
       - name: setup go
         uses: actions/setup-go@v2
         with:
           go-version: "^1.17.2"
       - name: build cmd line tool
         run: go build
-        working-directory: ./gsim/cmd/gsim
+        working-directory: ./gcsim/cmd/gcsim
       - name: check files
-        run: ls ./gsim/cmd/gsim
+        run: ls ./gcsim/cmd/gcsim
       - name: move to binaries folder (not windows)
         if: matrix.platform != 'windows-latest'
-        run: cp ./gsim/cmd/gsim/gsim ./src-tauri/binaries/gsim
+        run: cp ./gcsim/cmd/gcsim/gcsim ./src-tauri/binaries/gcsim
       - name: move to binaries folder (windows)
         if: matrix.platform == 'windows-latest'
-        run: cp ./gsim/cmd/gsim/gsim.exe ./src-tauri/binaries/gsim.exe
+        run: cp ./gcsim/cmd/gcsim/gcsim.exe ./src-tauri/binaries/gcsim.exe
       - name: check binaries folder
         run: ls ./src-tauri/binaries
       - name: setup node
@@ -79,7 +79,7 @@ jobs:
         id: sync
         with:
           auth: ${{ secrets.GIST_TOKEN }}
-          gist_url: https://gist.github.com/genshinsim/433cc76ced7155ee4a4d456b4ec5eea8
-          gist_title: gcsim latest
+          gist_url: https://gist.github.com/srliao/92d3d16d4f2921746b5791ffa23eded0
+          gist_title: gcsim
           gist_description: gcsim latest release
           github_file: ./latest.json

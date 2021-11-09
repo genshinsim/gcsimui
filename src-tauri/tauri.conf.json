@@ -1,7 +1,7 @@
 {
   "package": {
     "productName": "gcsim",
-    "version": "0.2.13"
+    "version": "0.2.14"
   },
   "build": {
     "distDir": "../build",
@@ -22,7 +22,7 @@
         "icons/icon.ico"
       ],
       "resources": [],
-      "externalBin": ["binaries/gsim"],
+      "externalBin": ["binaries/gcsim"],
       "copyright": "",
       "category": "DeveloperTool",
       "shortDescription": "",
@@ -48,7 +48,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://gist.githubusercontent.com/genshinsim/433cc76ced7155ee4a4d456b4ec5eea8/raw"
+        "https://gist.github.com/srliao/92d3d16d4f2921746b5791ffa23eded0/raw"
       ],
       "dialog": true
     },

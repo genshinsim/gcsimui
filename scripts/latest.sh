@@ -1,3 +1,4 @@
+#!/bin/bash
 
 arr=()
 IFS=$'\n' read -r -d '' -a arr < <( curl -s "https://api.github.com/repos/genshinsim/gcsimui/releases/latest" | jq -r '.assets[] | .browser_download_url' && printf '\0' )

@@ -1,4 +1,4 @@
-import genshindb from "genshin-db";
+const genshindb = require("genshin-db");
 
 const weapons = genshindb.weapons("names", { matchCategories: true });
 

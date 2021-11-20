@@ -1,30 +1,42 @@
 {
   "name": "gcsimui",
-  "version": "0.2.15",
+  "version": "0.3.0",
+  "description": "gcsimui",
+  "author": "genshinsim",
+  "license": "MIT",
+  "private": true,
+  "source": "src/index.html",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview"
+    "start": "parcel serve src/index.html",
+    "build": "parcel build src/index.html"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.0-next.21",
-    "@sveltejs/kit": "next",
     "@tauri-apps/cli": "^1.0.0-beta.10",
-    "autoprefixer": "^10.3.7",
-    "cssnano": "^5.0.8",
-    "postcss": "^8.3.9",
-    "postcss-load-config": "^3.1.0",
-    "svelte": "^3.42.6",
-    "svelte-preprocess": "^4.9.8",
-    "svelte-simple-modal": "^1.0.3",
-    "tailwindcss": "latest"
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.20",
+    "@types/wouter": "^2.2.0",
+    "@types/styled-components": "^5.1.15",
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^5.0.10",
+    "parcel": "^2.0.1",
+    "postcss": "^8.3.11",
+    "postcss-import": "^14.0.2",
+    "tailwindcss": "^2.2.19"
   },
-  "type": "module",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
     "@tauri-apps/api": "^1.0.0-beta.8",
+    "execa": "^5.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-overlays": "^5.1.1",
+    "wouter": "^2.8.0-alpha.2",
     "axios": "^0.24.0",
-    "chart.js": "^3.6.0",
-    "daisyui": "^1.14.7",
-    "genshin-db": "^3.11.2"
+    "daisyui": "^1.16.0",
+    "genshin-db": "^3.11.2",
+    "recharts": "^2.1.6",
+    "styled-components": "^5.3.3"
   }
 }

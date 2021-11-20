@@ -1,12 +1,12 @@
 {
   "package": {
     "productName": "gcsim",
-    "version": "0.2.15"
+    "version": "0.3.0"
   },
   "build": {
-    "distDir": "../build",
-    "devPath": "http://localhost:3000",
-    "beforeDevCommand": "yarn dev",
+    "distDir": "../dist",
+    "devPath": "http://localhost:1234",
+    "beforeDevCommand": "yarn start",
     "beforeBuildCommand": "yarn build"
   },
   "tauri": {

@@ -1,7 +1,6 @@
-#!/bin/bash
 
 arr=()
-IFS=$'\n' read -r -d '' -a arr < <( curl -s "https://api.github.com/repos/genshinsim/gcsimui/releases/latest" | jq -r '.assets[] | .browser_download_url' && printf '\0' )
+IFS=$'\n' read -r -d '' -a arr < <( curl -s "https://api.github.com/repos/genshinsim/gsimui/releases/latest" | jq -r '.assets[] | .browser_download_url' && printf '\0' )
 
 version=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' package.json)
 echo "Latest version $version"
@@ -22,7 +21,7 @@ done
 cat << EOF > latest.json
 {
     "name":"v$version",
-    "notes":"See release notes at https://github.com/genshinsim/gcsimui/releases",
+    "notes":"See release notes at https://github.com/genshinsim/gsimui/releases",
     "platforms": {
         "darwin": {
             "signature":"",

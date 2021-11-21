@@ -13,12 +13,10 @@
     "mona",
     "qiqi",
     "razor",
-    "sangonomiyakokomi",
     "sayu",
     "tartaglia",
     "thoma",
     "xinyan",
-    "yanfei",
   ];
 
   //filter options here

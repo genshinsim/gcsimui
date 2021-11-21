@@ -1,3 +1,8 @@
+0.2.17
+------
+
+- Forgot to actually enable Kokomi and Yanfei in UI....
+
 0.2.16
 ------
 

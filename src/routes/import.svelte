@@ -12,12 +12,10 @@
     "mona",
     "qiqi",
     "razor",
-    "sangonomiyakokomi",
     "sayu",
     "tartaglia",
     "thoma",
     "xinyan",
-    "yanfei",
   ];
 
   $: data = parseFromGO($goStore);

@@ -1,3 +1,13 @@
+0.2.16
+------
+
+- Added Yanfei (thanks to Tsym#2586); See https://github.com/genshinsim/gcsim/pull/70
+- Added Kokomi (thanks to Tsym#2586); See https://github.com/genshinsim/gcsim/pull/68
+- Fixed a bug with Albedo E construct refreshing
+- Added tags/status for Bennett buff and Xiao E stacks
+- Fixed debug to lazy load/render; Should be faster now
+- Added better queue debug msgs
+
 0.2.15
 ------
 

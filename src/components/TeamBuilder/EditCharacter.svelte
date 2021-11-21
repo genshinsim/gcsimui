@@ -1,6 +1,5 @@
 <script>
   import { staticPath, ascLvlMin, charAscLvlCap } from "@src/_util";
-  import genshindb from "genshin-db";
 
   export let lvl = 1;
   export let asc = 0;

@@ -1,6 +1,6 @@
 <script>
   import "../app.css";
-  import { onMount } from "svelte";
+  // import { onMount } from "svelte";
 
   import Navbar from "../components/Navbar.svelte";
   import Modal from "../components/Modal/Modal.svelte";

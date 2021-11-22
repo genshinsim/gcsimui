@@ -14,7 +14,6 @@
     "qiqi",
     "razor",
     "sayu",
-    "tartaglia",
     "thoma",
     "xinyan",
   ];

@@ -1,3 +1,9 @@
+0.2.18
+------
+
+- Tartaglia added thanks to vigne#5943 and Tsym#2586; See https://github.com/genshinsim/gcsim/pull/43
+
+
 0.2.17
 ------
 

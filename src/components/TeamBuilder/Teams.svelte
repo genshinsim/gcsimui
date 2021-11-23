@@ -5,9 +5,22 @@
   import { staticPath, toKey, blankChar } from "@src/_util";
   import { getContext } from "svelte";
   import genshindb from "genshin-db";
-  import Save from "./Save.svelte";
-  import Load from "./Load.svelte";
+  // import Save from "./Save.svelte";
+  // import Load from "./Load.svelte";
+  import { onMount } from "svelte";
   import { goto } from "$app/navigation";
+
+  let openFile, saveFile, writeFile, readTextFile;
+
+  onMount(async () => {
+    // const { invoke } = await import("@tauri-apps/api/tauri");
+    // Command = (await import("@tauri-apps/api/shell")).Command;
+    openFile = (await import("@tauri-apps/api/dialog")).open;
+    saveFile = (await import("@tauri-apps/api/dialog")).save;
+    writeFile = (await import("@tauri-apps/api/fs")).writeFile;
+    readTextFile = (await import("@tauri-apps/api/fs")).readTextFile;
+    // tempdir = (await import("@tauri-apps/api/os")).tempdir;
+  });
 
   // const existing = $charStore.map((e) => {
   //   return e.name;
@@ -29,11 +42,53 @@
   const { open, close } = getContext("modal");
 
   const handleOpenSave = () => {
-    open(Save);
+    saveFile({
+      filters: [
+        {
+          name: "json",
+          extensions: ["json"],
+        },
+      ],
+    })
+      .then((location) => {
+        console.log(location);
+        const data = JSON.stringify($charStore);
+        return writeFile({
+          contents: data,
+          path: location,
+        });
+      })
+      .then(() => {
+        alert("File saved");
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("Error saving file: ", e);
+      });
   };
 
   const handleOpenLoad = () => {
-    open(Load);
+    openFile()
+      .then((location) => {
+        console.log(location);
+        return readTextFile(location);
+      })
+      .then((content) => {
+        console.log(content);
+        //we're expecting a json of the state here
+
+        charStore.update((store) => {
+          try {
+            store = JSON.parse(content);
+          } catch (e) {
+            alert("Error reading file");
+            console.log(e);
+            return store;
+          }
+          alert("Saved data loaded ok");
+          return store;
+        });
+      });
   };
 
   const addChar = () => {

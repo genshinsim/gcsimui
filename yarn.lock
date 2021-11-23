@@ -4002,11 +4002,6 @@ svelte-simple-modal@^1.0.3:
   resolved "https://registry.yarnpkg.com/svelte-simple-modal/-/svelte-simple-modal-1.0.3.tgz#dbc75abc056e56acf208398357ae24c18a2caf20"
   integrity sha512-rW2kGUbw1/JEDBTR63L5XUu0+iW2Iij6Oi78ZiI+cDVicR9qANUwSwzCLtknK5Wb/RBxdsDl62mBKfrHcqeEnQ==
 
-svelte-tiny-virtual-list@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/svelte-tiny-virtual-list/-/svelte-tiny-virtual-list-1.1.7.tgz#7ba8ee1fc23372512de2aba50d9674972a35c6f7"
-  integrity sha512-8314cmLXOVqIQwSc3NFu8yGU7BdHEJeixrwFirmnMoWl6YNcCq5jVjCKjE3tDNJfUenz1LN5M5YshPt6GcPuww==
-
 svelte@^3.42.6:
   version "3.44.0"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.44.0.tgz#e6176cb3ad93846ddb4140e93f43098136b23f3b"

@@ -1,3 +1,9 @@
+0.2.19
+------
+
+- Aloy added thanks to Tsym#2586; See https://github.com/genshinsim/gcsim/pull/71
+- Added ability to save and load teams to JSON files in UI
+
 0.2.18
 ------
 

@@ -69,11 +69,15 @@
         });
       })
       .then(() => {
-        const command = Command.sidecar("gcsim", [
+        let params = [
           "-c=" + path + "/gcsim-input.txt",
           "-js=" + path + "/gcsim-out.txt",
           "-dh=false",
-        ]);
+        ];
+        if ($opt.calc) {
+          params.push("-calc");
+        }
+        const command = Command.sidecar("gcsim", params);
         return command.execute();
       })
       .then((message) => {

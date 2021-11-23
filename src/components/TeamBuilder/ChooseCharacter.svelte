@@ -7,7 +7,6 @@
 
   const notImplemented = [
     "aether",
-    "aloy",
     "barbara",
     "lumine",
     "mona",

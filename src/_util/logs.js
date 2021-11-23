@@ -65,6 +65,8 @@ export function parseLog(active, team, log) {
   //split the logs by new line
   const lines = log.split(/\r?\n/);
 
+  let rowKey = 0;
+
   lines.forEach((line) => {
     //parse json
     let d = {};
@@ -97,10 +99,12 @@ export function parseLog(active, team, log) {
     //check if frame changed; if so append stuff
     if (d.frame !== lastFrame) {
       result.push({
+        key: rowKey,
         f: lastFrame,
         slots: slots,
         active: activeIndex,
       });
+      rowKey++;
       //reset
       lastFrame = d.frame;
       slots = [];
@@ -244,7 +248,7 @@ export function parseLog(active, team, log) {
     slots[index].push(e);
   });
 
-  console.log(result);
+  // console.log(result);
 
   return result;
 }

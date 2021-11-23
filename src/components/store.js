@@ -1,5 +1,6 @@
 import { writable, derived } from "svelte/store";
 import { browser } from "$app/env";
+import { parseLog } from "@src/_util";
 
 //  https://frzyc.github.io/genshin-optimizer/#/doc
 //   interface ICharacter {
@@ -103,4 +104,31 @@ const storedLogSettings =
 export const logSettings = writable(browser && storedLogSettings);
 logSettings.subscribe(
   (val) => browser && (localStorage.logSettings = JSON.stringify(val))
+);
+
+//logs
+export const logStore = derived(
+  [resultStore, logSettings],
+  ([$resultStore, $logSettings]) => {
+    return parseLog(
+      $resultStore.active_char,
+      $resultStore.char_names,
+      $resultStore.debug
+    ).filter((row) => {
+      //each row is {f, slots, active}
+      //there should be 5 slots per row
+      //$logSettings.indexOf(e.event) > -1; <- this is what we're looking for
+      //in each slot
+      for (let i = 0; i < row.slots.length; i++) {
+        let slot = row.slots[i];
+        for (let j = 0; j < slot.length; j++) {
+          if ($logSettings.indexOf(slot[j].event) > -1) {
+            return true;
+          }
+        }
+      }
+      return false;
+    });
+  },
+  []
 );

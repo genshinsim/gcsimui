@@ -1,3 +1,10 @@
+0.2.20
+------
+
+- Added calc mode (documentation needs to be added still)
+- Fixed Aloy not enabled (forgot again...)
+
+
 0.2.19
 ------
 

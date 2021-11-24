@@ -127,11 +127,6 @@
 </div>
 
 <style lang="postcss" scoped>
-  .debug-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
   div.header {
     position: sticky;
     top: 0; /* Don't forget this, required for the stickiness */

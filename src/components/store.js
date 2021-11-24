@@ -110,6 +110,7 @@ logSettings.subscribe(
 export const logStore = derived(
   [resultStore, logSettings],
   ([$resultStore, $logSettings]) => {
+    // console.log("updating logStore: ", $logSettings);
     return parseLog(
       $resultStore.active_char,
       $resultStore.char_names,

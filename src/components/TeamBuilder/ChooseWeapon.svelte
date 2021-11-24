@@ -23,7 +23,6 @@
     "huntersbow",
     "ironpoint",
     "katsuragikirinagamasa",
-    "luxurioussealord",
     "messenger",
     "mitternachtswaltz",
     "oldmercspal",

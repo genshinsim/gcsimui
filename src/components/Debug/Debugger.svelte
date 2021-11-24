@@ -1,6 +1,6 @@
 <script>
   import { getContext } from "svelte";
-  import { resultStore, logStore } from "@components/store.js";
+  import { resultStore, logStore, logSettings } from "@components/store.js";
   // import { parseLog } from "@src/_util";
   import Item from "./Item.svelte";
   import InfiniteLoading from "svelte-infinite-loading";
@@ -104,7 +104,9 @@
                 : "border-l-2 border-gray-500"}
             >
               <!-- inside each slot is another array of events -->
-              {#each slot as e, index (index)}
+              {#each slot.filter((e) => {
+                return $logSettings.indexOf(e.event) > -1;
+              }) as e, index (index)}
                 <Item data={e} />
               {/each}
             </div>

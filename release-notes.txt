@@ -1,3 +1,9 @@
+0.2.23
+------
+
+- Fix UI bug where it is adding way too much CR/CD
+- Various bug fixes; see https://github.com/genshinsim/gcsim/pull/73
+
 0.2.22
 ------
 

@@ -63,10 +63,9 @@ jobs:
         with:
           tagName: gcsim-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
           releaseName: "gcsim v__VERSION__"
-          releaseBody: "See the assets to download this version and install."
+          releaseBody: "For Windows users, download the .msi file. For Mac users download the .dmg file. Linux users can figure it out."
           releaseDraft: false
           prerelease: false
-          includeDebug: true
   update-latest:
     needs: publish-tauri
     runs-on: ubuntu-latest

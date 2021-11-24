@@ -27,14 +27,18 @@ export function teamToConfig(store) {
     switch (gd_char.substat) {
       case "CRIT DMG":
         str += `cr=0.05 cd=${char_stats.specialized} `;
+        break;
       case "CRIT RATE":
         str += `cr=${char_stats.specialized} cd=0.5 `;
+        break;
       default:
         str += `cr=0.05 cd=0.5 `;
         str += `${simStat(gd_c_subs(gd_char.substat))}=${
           char_stats.specialized
         } `;
     }
+    console.log(gd_char.substat);
+    console.log(char_stats.specialized);
 
     str += `cons=${char.constellation} talent=${char.talent.auto},${char.talent.skill},${char.talent.burst} `;
     str += ";\n";

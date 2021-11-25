@@ -16,7 +16,7 @@
   import Help from "./Help.svelte";
   import { teamToConfig } from "./convert";
 
-  let Command, writeFile, tempdir, readTextFile;
+  let Command, saveFile, writeFile, tempdir, readTextFile;
 
   onMount(async () => {
     // const { invoke } = await import("@tauri-apps/api/tauri");
@@ -24,12 +24,15 @@
     writeFile = (await import("@tauri-apps/api/fs")).writeFile;
     readTextFile = (await import("@tauri-apps/api/fs")).readTextFile;
     tempdir = (await import("@tauri-apps/api/os")).tempdir;
+    saveFile = (await import("@tauri-apps/api/dialog")).save;
   });
 
   const { open, close } = getContext("modal");
 
   const handleOpenOpts = () => {
-    open(Options);
+    open(Options, {
+      handleExport: handleExport,
+    });
   };
 
   const handleOpenHelp = () => {
@@ -38,6 +41,45 @@
 
   const handleClearActionConfig = () => {
     actionConfigStore.set("");
+  };
+
+  const handleExport = () => {
+    //combine the configs
+    let cfg = $actionConfigStore;
+    if ($opt.useBuilder) {
+      cfg = teamToConfig($charStore) + "\n" + cfg;
+    }
+    //strip out the options line and replace w our own
+    cfg = cfg.replace(/^options.*$/m, "");
+    //add our own options
+    const cust = `options debug=${$opt.debug.toString()} iteration=${
+      $opt.i
+    } duration=${$opt.d} workers=${$opt.w};`;
+    // console.log(cust);
+    cfg = cust + "\n" + cfg;
+
+    saveFile({
+      filters: [
+        {
+          name: "txt",
+          extensions: ["txt"],
+        },
+      ],
+    })
+      .then((location) => {
+        console.log(location);
+        return writeFile({
+          contents: cfg,
+          path: location,
+        });
+      })
+      .then(() => {
+        alert("Sim config exported ok");
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("Error saving file: ", e);
+      });
   };
 
   const handleRun = () => {

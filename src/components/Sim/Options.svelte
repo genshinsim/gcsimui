@@ -1,6 +1,8 @@
 <script>
   import { opt } from "@components/store.js";
 
+  export let handleExport = () => {};
+
   const pattern = new RegExp(/^[0-9]{1,4}$/m);
   const workerPattern = new RegExp(/^[0-9]{1,2}$/m);
   const iterPattern = new RegExp(/^[0-9]{1,6}$/m);
@@ -135,6 +137,11 @@
         }}
       />
     </div>
+  </div>
+  <div class="flex flex-row p-1 justify-items-center mt-4">
+    <button class="btn btn-primary w-full" on:click={handleExport}
+      >Export Full Config</button
+    >
   </div>
 </div>
 

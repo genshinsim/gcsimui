@@ -1,3 +1,9 @@
+0.2.24
+------
+
+- Added ability to export full config to file
+- Fixed Fischl C6 bug
+
 0.2.23
 ------
 

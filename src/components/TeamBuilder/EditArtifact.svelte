@@ -156,7 +156,7 @@
             >Choose an artifact set</option
           >
           {#each sets as s, index (index)}
-            <option selected={artifact.setKey === s}>{s}</option>
+            <option selected={artifact.setKey === toKey(s)}>{s}</option>
           {/each}
         </select>
       </div>

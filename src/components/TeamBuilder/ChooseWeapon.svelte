@@ -4,15 +4,9 @@
 
   const notImplemented = [
     "amberbead",
-    "apprenticesnotes",
-    "beginnersprotector",
-    "blacktassel",
     "bloodtaintedgreatsword",
     "compoundbow",
-    "coolsteel",
     "darkironsword",
-    "debateclub",
-    "dullblade",
     "ebonybow",
     "emeraldorb",
     "everlastingmoonglow",
@@ -20,7 +14,6 @@
     "filletblade",
     "hakushinring",
     "halberd",
-    "huntersbow",
     "ironpoint",
     "katsuragikirinagamasa",
     "messenger",
@@ -40,10 +33,10 @@
     "theflagstaff",
     "travelershandysword",
     "twinnephrite",
-    "wastergreatsword",
     "whiteirongreatsword",
     "whitetassel",
     "wineandsong",
+    "cinnabarspindle",
   ];
 </script>
 

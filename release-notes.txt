@@ -1,51 +1,59 @@
-0.2.24
-------
+0.2.25 - Nov 27, 2021
+---------------------
+
+- Update genshin-db to latest version
+- Added a couple generic weapons with no effects
+- Added images for new artifacts
+- Fix artifact name showing up incorrectly in edit screen
+
+0.2.24 - Nov 25, 2021
+---------------------
 
 - Added ability to export full config to file
 - Fixed Fischl C6 bug
 
-0.2.23
-------
+0.2.23 - Nov 24, 2021
+---------------------
 
 - Fix UI bug where it is adding way too much CR/CD
 - Various bug fixes; see https://github.com/genshinsim/gcsim/pull/73
 
-0.2.22
-------
+0.2.22 - Nov 23, 2021
+---------------------
 
 - Fix a bug where debug is not hiding the right items
 
-0.2.21
-------
+0.2.21 - Nov 23, 2021
+---------------------
 
 - Revert back to genshin-db@3.11.2; Newest version seems to crash
 
-0.2.20
-------
+0.2.20 - Nov 23, 2021
+---------------------
 
 - Added calc mode (documentation needs to be added still)
 - Fixed Aloy not enabled (forgot again...)
 
 
-0.2.19
-------
+0.2.19 - Nov 22, 2021
+---------------------
 
 - Aloy added thanks to Tsym#2586; See https://github.com/genshinsim/gcsim/pull/71
 - Added ability to save and load teams to JSON files in UI
 
-0.2.18
-------
+0.2.18 - Nov 22, 2021
+---------------------
 
 - Tartaglia added thanks to vigne#5943 and Tsym#2586; See https://github.com/genshinsim/gcsim/pull/43
 
 
-0.2.17
-------
+0.2.17 - Nov 20, 2021
+---------------------
 
 - Forgot to actually enable Kokomi and Yanfei in UI....
 
-0.2.16
-------
+0.2.16 - Nov 20, 2021
+---------------------
 
 - Added Yanfei (thanks to Tsym#2586); See https://github.com/genshinsim/gcsim/pull/70
 - Added Kokomi (thanks to Tsym#2586); See https://github.com/genshinsim/gcsim/pull/68
@@ -54,20 +62,20 @@
 - Fixed debug to lazy load/render; Should be faster now
 - Added better queue debug msgs
 
-0.2.15
-------
+0.2.15 - Nov 15, 2021
+---------------------
 
 - Various bug fixes from; See https://github.com/genshinsim/gcsim/pull/66
 
 
-0.2.14
-------
+0.2.14 - Nov 8, 2021
+---------------------
 
 - Rebrand app name
 
 
-0.2.13
-------
+0.2.13 - Nov 5, 2021
+---------------------
 
 - Various bug fixes:
   - Fix Zhongli Q multiplier
@@ -77,8 +85,8 @@
   - Fix Fischl Oz number of hits
   - Add Sea-Lord and Nagamasa
 
-0.2.12
-------
+0.2.12 - Nov 4, 2021
+---------------------
 
 - Various bug fixes:
   - Archaic petra
@@ -86,14 +94,14 @@
   - Fischl A4
   - Kitain buffing wrong thing
 
-0.2.11
-------
+0.2.11 - Nov 4, 2021
+---------------------
 
 - Fixed Ningguang charge attack
 
 
-0.2.10
-------
+0.2.10 - Nov 4, 2021
+---------------------
 
 - Fixed an issue with rand not properly seeded and a bug introduced in 0.2.9
 

@@ -253,7 +253,7 @@
         {:else}
           <img
             src={char.weapon.icon}
-            alt={char.weapon.name}
+            alt="weapon"
             class="object-contain h-16"
           />
         {/if}

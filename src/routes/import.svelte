@@ -9,7 +9,6 @@
     "barbara",
     "lumine",
     "mona",
-    "qiqi",
     "razor",
     "sayu",
     "thoma",

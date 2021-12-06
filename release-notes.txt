@@ -1,3 +1,8 @@
+0.2.27 - Dec 5, 2021
+--------------------
+
+- Would help if I remember to enable Qiqi in UI...
+
 0.2.26 - Dec 5, 2021
 --------------------
 

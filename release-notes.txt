@@ -1,3 +1,10 @@
+0.2.26 - Dec 5, 2021
+--------------------
+
+- Qiqi added thanks to Tsym#2586; See https://github.com/genshinsim/gcsim/pull/79
+- Clam, Cinnabar and Husk added added
+- Fixed various bugs
+
 0.2.25 - Nov 27, 2021
 ---------------------
 

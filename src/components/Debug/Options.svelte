@@ -5,6 +5,7 @@
   const opts = [
     "procs",
     "damage",
+    "pre_damage_mods",
     "hurt",
     "heal",
     "calc",

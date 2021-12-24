@@ -1,3 +1,16 @@
+0.3.0 - Nov 24, 2021
+--------------------
+
+- Added Mona
+- Geo MC and Gorou have been added as well but are not yet currently enabled due to issues with the UI
+- The entire targetting and reaction system have been rewritten. You'll notice the
+  following:
+  - There is always a target 0 that takes no damage. This is to represent the player
+  - Debug will contain a whole bunch of skipped messages. This is because targeting is
+    now based on a 2D hitbox system.
+If you notice any issues with sim results compared to previous builds, please drop an issue in GitHub
+
+
 0.2.27 - Dec 5, 2021
 --------------------
 

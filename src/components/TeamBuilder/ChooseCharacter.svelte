@@ -9,7 +9,6 @@
     "aether",
     "barbara",
     "lumine",
-    "mona",
     "razor",
     "sayu",
     "thoma",

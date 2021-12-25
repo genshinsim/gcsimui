@@ -1,4 +1,9 @@
-0.3.0 - Nov 24, 2021
+0.3.1 - Dec 24, 2021
+--------------------
+
+- Various bug fixes (freeze, calc mode, Mona not activated)
+
+0.3.0 - Dec 24, 2021
 --------------------
 
 - Added Mona

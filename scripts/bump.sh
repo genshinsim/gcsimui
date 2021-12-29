@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/bin/bash
 function bump() {
   echo -n "Updating $1..."
   tmp_file=$(mktemp)
@@ -45,6 +45,7 @@ echo "\"version\": \"$current_version\""
 bump package.json "\"version\": \"$current_version\"" "\"version\": \"$new_version\""
 bump "src-tauri/Cargo.toml" "version = \"$current_version\"" "version = \"$new_version\""
 bump "src-tauri/tauri.conf.json" "\"version\": \"$current_version\"" "\"version\": \"$new_version\""
+bump "src-tauri/tauri.conf.json" "\"title\": \"gcsim v$current_version\"" "\"title\": \"gcsim v$new_version\""
 
 rm -f package.json.bak
 rm -f src-tauri/Cargo.toml.bak

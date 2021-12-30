@@ -1,4 +1,9 @@
-0.4.0 - Dec 28, 2021
+0.4.1 - Dec 2, 2021
+--------------------
+
+- Fixed ICD group bug
+
+0.4.0 - Dec 29, 2021
 --------------------
 
 - THIS RELEASE CONTAINS BREAKING CHANGES!!!

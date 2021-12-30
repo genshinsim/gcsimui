@@ -1,5 +1,5 @@
 import genshindb from "genshin-db";
-import { ascLvlMin } from "@src/_util";
+import { ascLvlMin, charAscLvlCap } from "@src/_util";
 
 //converts charStore to config file
 export function teamToConfig(store) {
@@ -12,52 +12,18 @@ export function teamToConfig(store) {
     //grab char from genshindb
     const gd_char = genshindb.characters(char.key);
     const c_key = char.key.replace(/[^0-9a-z]/gi, "");
-    str += `char+=${c_key} ele=${char.element} lvl=${char.level} `;
-    //calculate char stats
-    let char_stats;
-    if (char.level === ascLvlMin(char.ascension)) {
-      char_stats = gd_char.stats(char.level, "+");
-    } else {
-      char_stats = gd_char.stats(char.level);
-    }
 
-    //add in the basic stats first (hp, atk def)
-    str += `hp=${char_stats.hp} atk=${char_stats.attack} def=${char_stats.defense} `;
-    //special case if specialized is cr/cd
-    switch (gd_char.substat) {
-      case "CRIT DMG":
-        str += `cr=0.05 cd=${char_stats.specialized} `;
-        break;
-      case "CRIT RATE":
-        str += `cr=${char_stats.specialized} cd=0.5 `;
-        break;
-      default:
-        str += `cr=0.05 cd=0.5 `;
-        str += `${simStat(gd_c_subs(gd_char.substat))}=${
-          char_stats.specialized
-        } `;
-    }
-    console.log(gd_char.substat);
-    console.log(char_stats.specialized);
-
-    str += `cons=${char.constellation} talent=${char.talent.auto},${char.talent.skill},${char.talent.burst} `;
-    str += ";\n";
+    str += `${c_key} char lvl=${char.level}/${charAscLvlCap(
+      char.ascension
+    )} cons=${char.constellation} talent=${char.talent.auto},${
+      char.talent.skill
+    },${char.talent.burst}; \n`;
 
     //weapon next
-    const gd_weap = genshindb.weapons(char.weapon.key);
     const w_key = char.weapon.key.replace(/[^0-9a-z]/gi, "");
-    let weap_stats;
-    if (char.weapon.level === ascLvlMin(char.weapon.ascension)) {
-      weap_stats = gd_weap.stats(char.weapon.level, "+");
-    } else {
-      weap_stats = gd_weap.stats(char.weapon.level);
-    }
-    str += `weapon+=${c_key} label="${w_key}" atk=${weap_stats.attack} refine=${char.weapon.refinement} `;
-    //check if it has a substat first
-    if (gd_weap.substat !== "") {
-      str += `${simStat(gd_w_subs(gd_weap.substat))}=${weap_stats.specialized}`;
-    }
-    str += ";\n";
+    str += `${c_key} add weapon="${w_key}" refine=${
+      char.weapon.refinement
+    } lvl=${char.weapon.level}/${charAscLvlCap(char.weapon.ascension)};\n`;
 
     //artifacts next
     let main = {};
@@ -134,25 +100,25 @@ export function teamToConfig(store) {
     //add the sets
     for (const [key, value] of Object.entries(sets)) {
       if (value > 1) {
-        str += `art+=${c_key} label="${key}" count=${value};\n`;
+        str += `${c_key} add set="${key}" count=${value};\n`;
       }
     }
 
     //add main stats
-    str += `stats+=${c_key} label=main `;
+    str += `${c_key} add stats `;
     for (const [key, value] of Object.entries(main)) {
       str += `${simStat(key)}=${value} `;
     }
-    str += ";\n";
+    str += "; #main\n";
 
     //add subs
-    str += `stats+=${c_key} label=subs `;
+    str += `${c_key} add stats `;
     for (const [key, value] of Object.entries(subs)) {
       if (value > 0) {
         str += `${simStat(key)}=${value} `;
       }
     }
-    str += ";\n";
+    str += "; #subs\n";
 
     //extra line skip
     str += "\n";

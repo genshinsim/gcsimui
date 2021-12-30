@@ -18,6 +18,8 @@ export function eventColor(eve) {
       return "#6366F1";
     case "snapshot_mods":
       return "#818CF8";
+    case "pre_damage_mods":
+      return "#818CF8";
     case "status":
       return "";
     case "action":
@@ -157,7 +159,7 @@ export function parseLog(active, team, log) {
       case "queue":
         let msg = "";
         if (d.failed) {
-          msg = `(${d.reason}) ${d.target}: ${d.exec}`;
+          msg = `(${d.reason}): ${d.exec}`;
           if (msg.length > 40) {
             msg = msg.slice(0, 40) + "...";
           }
@@ -179,10 +181,13 @@ export function parseLog(active, team, log) {
             e.msg = d.old_ele + " expired";
             break;
           case "application":
+            console.log(d.existing);
             e.msg =
               d.applied_ele +
               " applied" +
-              (d.existing_ele === "" ? "" : " to " + d.existing_ele);
+              (d.existing.length > 0
+                ? " to " + d.existing[0].replace(/: (.+)/, " ($1)")
+                : "");
             break;
           case "refreshed":
             e.msg = d.ele + " refreshed";
@@ -203,6 +208,9 @@ export function parseLog(active, team, log) {
             ", next: " +
             Math.round(d["post_recovery"]);
         }
+        if (e.msg.includes("adding energy")) {
+          e.msg += ` ${d["rec'd"]}`;
+        }
         e.icon = "local_cafe";
         break;
       case "calc":
@@ -218,6 +226,9 @@ export function parseLog(active, team, log) {
         break;
       case "snapshot_mods":
         e.icon = "build";
+        break;
+      case "pre_damage_mods":
+        e.icon = "dynamic_form";
         break;
       case "heal":
         e.icon = "healing";

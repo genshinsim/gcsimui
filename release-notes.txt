@@ -1,3 +1,13 @@
+0.4.0 - Dec 28, 2021
+--------------------
+
+- THIS RELEASE CONTAINS BREAKING CHANGES!!!
+  - The entire action list syntax has been redesigned to be simpler.
+  - All action lists on https://www.gcsim.app have been updated to this new format. Please check for example
+  - Documentation will be added shortly to the wiki
+
+Because this is a very significant change, as always please get in touch (Discord preferred) if you run into any issues
+
 0.3.6 - Dec 28, 2021
 --------------------
 

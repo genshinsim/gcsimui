@@ -14,7 +14,7 @@
   import Options from "./Options.svelte";
   import { onMount } from "svelte";
   import Help from "./Help.svelte";
-  import { teamToConfig } from "./convert";
+  import { teamToConfig, calcModeConvert } from "./convert";
 
   let Command, saveFile, writeFile, tempdir, readTextFile;
 
@@ -96,6 +96,13 @@
     } duration=${$opt.d} workers=${$opt.w};`;
     // console.log(cust);
     cfg = cust + "\n" + cfg;
+
+    //fix if calc mode
+    if ($opt.calc) {
+      console.log("before ", cfg);
+      cfg = calcModeConvert(cfg);
+      console.log("after ", cfg);
+    }
 
     console.log(cfg);
 

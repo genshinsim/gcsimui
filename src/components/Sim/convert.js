@@ -127,6 +127,32 @@ export function teamToConfig(store) {
   return str.toLowerCase();
 }
 
+//convert some short hands in calc mode
+export function calcModeConvert(cfg) {
+  //valid symbols are q,e,n,a,c,j,d (with a number)
+  let skill = /\b(e)(\d?)\b/gm;
+  let burst = /\b(q)(\d?)\b/gm;
+  let attack = /\b(n)(\d?)\b/;
+  let charge = /\b(c)(\d?)\b/gm;
+  let low_lunge = /\b(p)(\d?)\b/gm;
+  let aim = /\b(a)(\d?)\b/gm;
+  let dash = /\b(d)(\d?)\b/gm;
+  let jump = /\b(j)(\d?)\b/gm;
+
+  //find and replace in cfg
+  cfg = cfg.replace(skill, "skill:$2");
+  cfg = cfg.replace(burst, "burst:$2");
+  cfg = cfg.replace(attack, "attack:$2");
+  cfg = cfg.replace(charge, "charge:$2");
+  cfg = cfg.replace(low_lunge, "low_lunge:$2");
+  cfg = cfg.replace(aim, "aim:$2");
+  cfg = cfg.replace(dash, "dash:$2");
+  cfg = cfg.replace(jump, "jump:$2");
+
+  cfg = cfg.replace(/:(?!\d)/gm, "");
+  return cfg;
+}
+
 /**
  *   {
     "key": "Kaeya",

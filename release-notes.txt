@@ -1,6 +1,11 @@
 0.4.2 - Dec 20, 2021
 --------------------
 
+- Allow shorthand in calc mode (ui only)
+
+0.4.2 - Dec 20, 2021
+--------------------
+
 - Syntax bug fixes
 
 0.4.1 - Dec 29, 2021

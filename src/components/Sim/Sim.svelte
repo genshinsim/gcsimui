@@ -46,6 +46,12 @@
   const handleExport = () => {
     //combine the configs
     let cfg = $actionConfigStore;
+    //fix if calc mode
+    if ($opt.calc) {
+      console.log("before ", cfg);
+      cfg = calcModeConvert(cfg);
+      console.log("after ", cfg);
+    }
     if ($opt.useBuilder) {
       cfg = teamToConfig($charStore) + "\n" + cfg;
     }
@@ -85,6 +91,12 @@
   const handleRun = () => {
     //combine the configs
     let cfg = $actionConfigStore;
+    //fix if calc mode
+    if ($opt.calc) {
+      console.log("before ", cfg);
+      cfg = calcModeConvert(cfg);
+      console.log("after ", cfg);
+    }
     if ($opt.useBuilder) {
       cfg = teamToConfig($charStore) + "\n" + cfg;
     }
@@ -96,13 +108,6 @@
     } duration=${$opt.d} workers=${$opt.w};`;
     // console.log(cust);
     cfg = cust + "\n" + cfg;
-
-    //fix if calc mode
-    if ($opt.calc) {
-      console.log("before ", cfg);
-      cfg = calcModeConvert(cfg);
-      console.log("after ", cfg);
-    }
 
     console.log(cfg);
 

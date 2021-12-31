@@ -1,3 +1,8 @@
+0.4.8 - Dec 31, 2021
+--------------------
+
+- Fix limit/reset_limit commands not work
+
 0.4.7 - Dec 31, 2021
 --------------------
 

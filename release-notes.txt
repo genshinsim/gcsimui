@@ -1,3 +1,9 @@
+0.4.7 - Dec 31, 2021
+--------------------
+
+- Add restart command to calc mode
+- Various bug fixes
+
 0.4.6 - Dec 31, 2021
 --------------------
 

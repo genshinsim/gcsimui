@@ -181,7 +181,7 @@ export function parseLog(active, team, log) {
             e.msg = d.old_ele + " expired";
             break;
           case "application":
-            console.log(d.existing);
+            // console.log(d.existing);
             e.msg =
               d.applied_ele +
               " applied" +

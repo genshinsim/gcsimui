@@ -128,29 +128,60 @@ export function teamToConfig(store) {
 }
 
 //convert some short hands in calc mode
-export function calcModeConvert(cfg) {
-  //valid symbols are q,e,n,a,c,j,d (with a number)
-  let skill = /\b(e)(\d?)\b/gm;
-  let burst = /\b(q)(\d?)\b/gm;
-  let attack = /\b(n)(\d?)\b/;
-  let charge = /\b(c)(\d?)\b/gm;
-  let low_lunge = /\b(p)(\d?)\b/gm;
-  let aim = /\b(a)(\d?)\b/gm;
-  let dash = /\b(d)(\d?)\b/gm;
-  let jump = /\b(j)(\d?)\b/gm;
+export function calcModeConvert(str) {
+  // https://regex101.com/r/ogCjOT/1
+  let rx =
+    /(;\s*((?!active)[^;])+?[^;+#]*?\s*([\s,\]])\s*)(([qenacjd]\d*)+)([^a-z].*)/is;
+  /** bad explanation
+   * ;                  - start
+   * \s*                - ignore starting whitespace
+   * ((?!active)[^;])+? - character name. will not match against the word 'active'.
+   * [^;+#]*?           - eats characters
+   * \s*([\s,\]])\s*    - ignore whitespace. grab context character
+   * ([qenacjd]\d*)+    - grab all shorthanded
+   * [^a-z].*           - whatever afterwards
+   */
 
-  //find and replace in cfg
-  cfg = cfg.replace(skill, "skill:$2");
-  cfg = cfg.replace(burst, "burst:$2");
-  cfg = cfg.replace(attack, "attack:$2");
-  cfg = cfg.replace(charge, "charge:$2");
-  cfg = cfg.replace(low_lunge, "low_lunge:$2");
-  cfg = cfg.replace(aim, "aim:$2");
-  cfg = cfg.replace(dash, "dash:$2");
-  cfg = cfg.replace(jump, "jump:$2");
+  let result = str.match(rx);
+  while (result !== null) {
+    let toReplace = convertShort(result[3], result[4]);
+    str = str.replace(rx, `$1${toReplace}$6`);
+    result = str.match(rx);
+  }
 
-  cfg = cfg.replace(/:(?!\d)/gm, "");
-  return cfg;
+  return str;
+}
+
+/**
+ * @param contextchar - the character before the string we need to convert. (space, comma, closing bracket)
+ * @param str - the string we need to convert to longhand (contains letters q,e,n,a,c,j,d)
+ */
+function convertShort(contextchar, str) {
+  let out = "";
+  if (contextchar === "]") out = ",";
+
+  const shortmap = {
+    e: "skill",
+    q: "burst",
+    n: "attack",
+    c: "charge",
+    p: "low_lunge",
+    a: "aim",
+    d: "dash",
+    j: "jump",
+  };
+
+  let arr = str
+    .replace(",", "")
+    .split(/([a-z]\d*)/)
+    .filter((s) => s !== "");
+  for (let [index, actionshort] of arr.entries()) {
+    out = out + shortmap[actionshort[0]];
+    if (actionshort.length > 1) out = out + ":" + actionshort.substring(1);
+    if (index < arr.length - 1)
+      // don't add comma at very end
+      out = out + ",";
+  }
 }
 
 /**

@@ -7,6 +7,20 @@ export const staticPath = {
   artifacts: "/images/artifacts",
 };
 
+export const notImplemented = [
+  "traveler",
+  "aether",
+  "barbara",
+  "lumine",
+  "razor",
+  "sayu",
+  "thoma",
+  "xinyan",
+  "aratakiitto",
+  "shenhe",
+  "yunjin",
+];
+
 export function parseFromGO(val) {
   if (val === "") {
     return {

@@ -1,18 +1,7 @@
 <script>
   import { charStore, goStore } from "../components/store";
   import { goto } from "$app/navigation";
-  import { parseFromGO, toKey, staticPath } from "@src/_util";
-
-  const notImplemented = [
-    "traveler",
-    "aether",
-    "barbara",
-    "lumine",
-    "razor",
-    "sayu",
-    "thoma",
-    "xinyan",
-  ];
+  import { parseFromGO, staticPath, notImplemented } from "@src/_util";
 
   $: data = parseFromGO($goStore);
 

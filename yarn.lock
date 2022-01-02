@@ -1659,12 +1659,13 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-genshin-db@3.12.1:
-  version "3.12.1"
-  resolved "https://registry.yarnpkg.com/genshin-db/-/genshin-db-3.12.1.tgz#8fdc73988e8910cf6aff549d3a506ca722924e03"
-  integrity sha512-TNl/T6KA7TaKE9DgNwwopAeMysV8w4/uoXZwpmERYBJlmoi3fFjGSwei8rI/8g06uaOJACW1LmmnFhuYK13z3w==
+genshin-db@^3.12.1:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/genshin-db/-/genshin-db-3.13.0.tgz#94f00087232b361bd38f858aa72e6c5534c80149"
+  integrity sha512-Hv6QOGuv+YWNx2QXm7nbmr9P5hyL0FLFJ9BsNzeSvxb9wUZe9o2qZTyYDBnjIgjLcK8s22PG1HIhf1Rm/i8X7Q==
   dependencies:
     fuzzysort "^1.1.4"
+    pako "^2.0.4"
 
 get-proxy@^2.0.0:
   version "2.1.0"
@@ -2872,6 +2873,11 @@ package-json@^6.3.0:
     registry-auth-token "^4.0.0"
     registry-url "^5.0.0"
     semver "^6.2.0"
+
+pako@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-2.0.4.tgz#6cebc4bbb0b6c73b0d5b8d7e8476e2b2fbea576d"
+  integrity sha512-v8tweI900AUkZN6heMU/4Uy4cXRc2AYNRggVmTR+dEncawDJgCdLMximOVA2p4qO57WMynangsfGRb5WD6L1Bg==
 
 parent-module@^1.0.0:
   version "1.0.1"

@@ -1,3 +1,11 @@
+0.4.9 - Jan 02, 2022
+--------------------
+
+- Added guoba swirl
+- Fixed Noelle and HT snapshots
+- Some backend clean up
+- Enabled Gorou
+
 0.4.8 - Dec 31, 2021
 --------------------
 

@@ -1,19 +1,10 @@
 <script>
   import { getContext } from "svelte";
   import { charStore } from "../store.js";
+  import { notImplemented } from "@src/_util";
 
   export let charOptions = [];
   export let onChange = (v) => {};
-
-  const notImplemented = [
-    "aether",
-    "barbara",
-    "lumine",
-    "razor",
-    "sayu",
-    "thoma",
-    "xinyan",
-  ];
 
   //filter options here
   console.log($charStore);

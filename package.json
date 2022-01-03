@@ -1,6 +1,6 @@
 {
   "name": "gcsimui",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

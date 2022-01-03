@@ -1,3 +1,10 @@
+0.4.10 - Jan 02, 2022
+---------------------
+
+- Fixed Kazuha burst timing
+- Fixed Beidou ascension stat
+- Fixed debug output for reaction into freeze/ec
+
 0.4.9 - Jan 02, 2022
 --------------------
 

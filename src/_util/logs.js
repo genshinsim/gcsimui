@@ -182,11 +182,13 @@ export function parseLog(active, team, log) {
             break;
           case "application":
             // console.log(d.existing);
-            e.msg =
-              d.applied_ele + " applied"(d.existing.length > 0 ? " to " : "");
-            d.existing.forEach((ele) => {
-              e.msg += ele.replace(/: (.+)/, " ($1)") + " ";
-            });
+            e.msg = d.applied_ele + " applied";
+            if (d.existing && d.existing.length > 0) {
+              e.msg += " to ";
+              d.existing.forEach((ele) => {
+                e.msg += ele.replace(/: (.+)/, " ($1)") + " ";
+              });
+            }
             break;
           case "refreshed":
             e.msg = d.ele + " refreshed";

@@ -36,7 +36,7 @@
     "whiteirongreatsword",
     "whitetassel",
     "wineandsong",
-    "cinnabarspindle",
+    "calamityqueller",
   ];
 </script>
 

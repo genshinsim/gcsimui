@@ -17,7 +17,6 @@ export const notImplemented = [
   "thoma",
   "xinyan",
   "aratakiitto",
-  "shenhe",
   "yunjin",
 ];
 

@@ -1,3 +1,10 @@
+0.4.13 - Jan 05, 2022
+---------------------
+
+- Add Shenhe
+- Fixed various Zhongli bugs
+- Change +try to either +try=drop or +try=wait
+
 0.4.12 - Jan 02, 2022
 ---------------------
 

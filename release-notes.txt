@@ -1,3 +1,10 @@
+0.4.15 - Jan 06, 2022
+---------------------
+
+- Actually fix Shenhe cooldown this time...
+- Additional bug fixes for Noelle,  Hutao, Bennett, Yoimiya
+
+
 0.4.14 - Jan 05, 2022
 ---------------------
 

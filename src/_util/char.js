@@ -17,7 +17,6 @@ export const notImplemented = [
   "thoma",
   "xinyan",
   "aratakiitto",
-  "yunjin",
 ];
 
 export function parseFromGO(val) {

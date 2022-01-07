@@ -1,3 +1,10 @@
+0.4.16 - Jan 06, 2022
+---------------------
+
+- Fix Shenhe NO4 snapshotting
+- Fix Kazuha frames
+- Fix shields not overwriting properly
+
 0.4.15 - Jan 06, 2022
 ---------------------
 

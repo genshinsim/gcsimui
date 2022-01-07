@@ -29,7 +29,14 @@
     "icd",
   ];
 
-  const defaults = ["damage", "element", "action", "energy"];
+  const defaults = [
+    "damage",
+    "element",
+    "action",
+    "energy",
+    "pre_damage_mods",
+    "snapshot_mods",
+  ];
 
   var handleClear = () => {
     logSettings.set([]);

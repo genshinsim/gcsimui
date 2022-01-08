@@ -1,8 +1,43 @@
 <script>
-  import { resultStore as r } from "@components/store.js";
+  import { resultStore as r, gzipStore } from "@components/store.js";
+  import { onMount } from "svelte";
 
   import PieChart from "./PieChart.svelte";
   import BarChart from "./BarChart.svelte";
+
+  let saveFile, writeBinaryFile;
+
+  onMount(async () => {
+    writeBinaryFile = (await import("@tauri-apps/api/fs")).writeBinaryFile;
+    saveFile = (await import("@tauri-apps/api/dialog")).save;
+  });
+
+  const handleShareResult = () => {
+    let data = $gzipStore;
+
+    saveFile({
+      filters: [
+        {
+          name: "gz",
+          extensions: ["gz"],
+        },
+      ],
+    })
+      .then((location) => {
+        console.log(location);
+        return writeBinaryFile({
+          contents: data,
+          path: location,
+        });
+      })
+      .then(() => {
+        alert("Sim results exported ok");
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("Error exporting results file: ", e);
+      });
+  };
 
   const COLORS = [
     "#2965CC",
@@ -86,7 +121,7 @@
   console.log($r);
 </script>
 
-<div class="flex flex-col pl-6 pr-6">
+<div class="flex flex-col pl-6 pr-6 relative">
   <div class="bg-gray-700 p-2 rounded-md flex flex-col">
     <div class="text-lg font-medium pt-2 pb-2">
       Damage Breakdown (in damage/second, on average)
@@ -164,5 +199,10 @@
     <pre>
         {$r.text}
     </pre>
+  </div>
+  <div class="sticky bottom-2 w-full flex justify-center mb-2">
+    <button class="btn btn-wide opacity-75" on:click={handleShareResult}
+      >share</button
+    >
   </div>
 </div>

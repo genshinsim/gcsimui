@@ -3,11 +3,13 @@
 
   import { getContext } from "svelte";
   import { goto } from "$app/navigation";
+  import pako from "pako";
   import {
     charStore,
     actionConfigStore,
     opt,
     resultStore,
+    gzipStore,
   } from "@components/store.js";
   import Loader from "@components/Sim/Loader.svelte";
   import Error from "./Error.svelte";
@@ -16,13 +18,13 @@
   import Help from "./Help.svelte";
   import { teamToConfig, calcModeConvert } from "./convert";
 
-  let Command, saveFile, writeFile, tempdir, readTextFile;
+  let Command, saveFile, writeFile, tempdir, readBinaryFile;
 
   onMount(async () => {
     // const { invoke } = await import("@tauri-apps/api/tauri");
     Command = (await import("@tauri-apps/api/shell")).Command;
     writeFile = (await import("@tauri-apps/api/fs")).writeFile;
-    readTextFile = (await import("@tauri-apps/api/fs")).readTextFile;
+    readBinaryFile = (await import("@tauri-apps/api/fs")).readBinaryFile;
     tempdir = (await import("@tauri-apps/api/os")).tempdir;
     saveFile = (await import("@tauri-apps/api/dialog")).save;
   });
@@ -125,7 +127,8 @@
       .then(() => {
         let params = [
           "-c=" + path + "/gcsim-input.txt",
-          "-js=" + path + "/gcsim-out.txt",
+          "-js=" + path + "/gcsim-out",
+          "-gz",
           "-dh=false",
         ];
         if ($opt.calc) {
@@ -143,11 +146,14 @@
           });
           return Promise.reject("error running sim");
         } else {
-          return readTextFile(path + "gcsim-out.txt");
+          return readBinaryFile(path + "gcsim-out.json.gz");
         }
       })
       .then((data) => {
-        const result = JSON.parse(data);
+        //data is bytes array
+        gzipStore.set(data);
+        const restored = pako.inflate(new Uint8Array(data), { to: "string" });
+        const result = JSON.parse(restored);
         result.ok = true;
         resultStore.set(result);
         // console.log($resultStore);

@@ -1,3 +1,11 @@
+0.4.20 - Jan 07, 2022
+---------------------
+
+- Shenhe ICD fix
+- Yunjin particles adjustment
+- Added share button
+
+
 0.4.19 - Jan 07, 2022
 ---------------------
 

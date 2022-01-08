@@ -99,6 +99,8 @@ actionConfigStore.subscribe(
 
 export const resultStore = writable({});
 
+export const gzipStore = writable([]);
+
 const storedLogSettings =
   JSON.parse(browser && localStorage.getItem("logSettings")) || [];
 export const logSettings = writable(browser && storedLogSettings);

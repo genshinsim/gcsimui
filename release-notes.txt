@@ -1,3 +1,8 @@
+0.4.24 - Jan 08, 2022
+---------------------
+
+- Fixed Solar Pearl, Alley Hunter, Lost Prayer, Lisa bugs
+
 0.4.23 - Jan 08, 2022
 ---------------------
 

@@ -1,3 +1,10 @@
+0.4.26 - Jan 11, 2022
+---------------------
+
+- Bug fixes for Ningguang, prototype amber, and elegy
+- Disable debug mode option; always use debug mode
+- Fix missing images
+
 0.4.25 - Jan 11, 2022
 ---------------------
 

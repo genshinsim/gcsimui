@@ -66,7 +66,7 @@ export const goStore = writable(browser && storedGOJSON);
 goStore.subscribe((val) => browser && (localStorage.goJSON = val));
 
 const initialOpt = {
-  debug: false,
+  debug: true,
   i: 1000,
   d: 90,
   w: 24,

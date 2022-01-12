@@ -107,22 +107,6 @@
     </div>
   </div>
   <div class="flex flex-row p-1 justify-items-center">
-    <div class="flex items-center  flex-grow">Debug</div>
-    <div class="ml-4 mr-4 rounded-md">
-      <input
-        type="checkbox"
-        checked={$opt.debug}
-        class="toggle toggle-primary"
-        on:change={(e) => {
-          opt.update((store) => {
-            store.debug = e.target.checked;
-            return store;
-          });
-        }}
-      />
-    </div>
-  </div>
-  <div class="flex flex-row p-1 justify-items-center">
     <div class="flex items-center  flex-grow">Use Builder</div>
     <div class="ml-4 mr-4 rounded-md">
       <input

@@ -60,9 +60,7 @@
     //strip out the options line and replace w our own
     cfg = cfg.replace(/^options.*$/m, "");
     //add our own options
-    const cust = `options debug=${$opt.debug.toString()} iteration=${
-      $opt.i
-    } duration=${$opt.d} workers=${$opt.w};`;
+    const cust = `options debug=true iteration=${$opt.i} duration=${$opt.d} workers=${$opt.w};`;
     // console.log(cust);
     cfg = cust + "\n" + cfg;
 

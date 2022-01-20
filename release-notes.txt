@@ -1,3 +1,9 @@
+0.4.29 - Jan 20, 2022
+---------------------
+
+- Fix burst CD start to match energy consumption
+- Fix Ayaka ICD on NA and Dash
+
 0.4.28 - Jan 18, 2022
 ---------------------
 

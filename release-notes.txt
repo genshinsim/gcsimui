@@ -1,3 +1,9 @@
+0.4.30 - Jan 21, 2022
+---------------------
+
+- Fix Albedo burst CD
+- Fix Barbara E scaling
+
 0.4.29 - Jan 20, 2022
 ---------------------
 

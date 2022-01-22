@@ -1,3 +1,9 @@
+0.4.31 - Jan 22, 2022
+---------------------
+
+- Fix Rosaria burst using wrong multiplier
+- Fix Diona burst framess
+
 0.4.30 - Jan 21, 2022
 ---------------------
 

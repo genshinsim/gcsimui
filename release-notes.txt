@@ -1,3 +1,14 @@
+0.4.32 - Jan 24, 2022
+---------------------
+
+- Implement substat optimization in cmd line
+- Fix Primordial Jade Winged-Spear stacks
+- Fix Guoba snapshot timing
+- Fix Kazuha plunge not shattering
+- Fix Chongyun infuse field timing
+- Fix swirl damage ICD so an enemy can be affected by more than 2 damage instances
+- Fix VV not proccing on AoE targets appropriately
+
 0.4.31 - Jan 22, 2022
 ---------------------
 

@@ -1,3 +1,12 @@
+0.4.33 - Jan 24, 2022
+---------------------
+
+- Fix substat optimizer typo
+- Fix Amber Attack Tag, ICD Tag, and ICD Group
+- Fix Eula grimheart stacks not adding
+- Fix Fischl snapshot frames to account for on damage proc timing
+- Fix Freedom Sworn - ATK did not snapshot, dmg% buff did not reset
+
 0.4.32 - Jan 24, 2022
 ---------------------
 

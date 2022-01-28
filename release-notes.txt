@@ -1,3 +1,20 @@
+0.4.34 - Jan 27, 2022
+---------------------
+
+- Overall debug improvements, moving things into consistent categories (#201)
+- A lot of bugfixes. Below list the ones that have been resolved:
+  - Bennett Q did not work properly at C0
+  - Lisa C1 was activating on her CA and not her hold E
+  - Windblume Ode did not have an onfield check
+  - Ganyu E explosion particle timing was wrong
+  - Kaeya CA was coded as being an NA tag
+  - Geo Traveller had an 80 cost burst instead of 60
+  - Geo Traveller energy refund did not work if cast at frame 0
+  - Hydro swirl was doing AoE damage
+  - Jean NA was snapshotting incorrectly
+  - Jean CA was not implemented
+  - Keqing Q was coded as snapshotted, not dynamic
+
 0.4.33 - Jan 24, 2022
 ---------------------
 

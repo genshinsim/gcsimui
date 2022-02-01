@@ -1,3 +1,14 @@
+0.4.35 - Feb 01, 2022
+---------------------
+
+- Fix Aloy coil stacks issue
+- Fix Xingqiu infinite burst
+- Fix Venti Q frames
+- Fix Kokomi not adding in heal bonus
+- Add ability to set Geo Traveller burst construct count for Zhongli
+- Fix Keqing C4 and weapon attack tag checks
+- Add Polar Star
+
 0.4.34 - Jan 27, 2022
 ---------------------
 

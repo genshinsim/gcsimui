@@ -21,7 +21,7 @@
     "oldmercspal",
     "otherworldlystory",
     "pocketgrimoire",
-    "polarstar",
+    
     "predator",
     "quartz",
     "ravenbow",

@@ -1,3 +1,19 @@
+0.4.36 - Feb 06, 2022
+---------------------
+
+- Fixes pale flame 2 pc set typo
+- Fixes Bennett burst frame timing and A4 activation method
+- Fixes Gorou C6 incorrectly snapshotting
+- Add max energy in energy log
+- Add Eula skill hold check for tenacity and pale flame
+- Fixed Eula burst timing
+- Fixed Skyward Pride proc count
+- Added Calamity Queller
+- Fix Polar Star
+- Fix Mistsplitter burst bug
+- Add Moonglow
+
+
 0.4.35 - Feb 01, 2022
 ---------------------
 

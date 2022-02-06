@@ -21,7 +21,6 @@
     "oldmercspal",
     "otherworldlystory",
     "pocketgrimoire",
-    "polarstar",
     "predator",
     "quartz",
     "ravenbow",
@@ -36,7 +35,6 @@
     "whiteirongreatsword",
     "whitetassel",
     "wineandsong",
-    "calamityqueller",
   ];
 </script>
 

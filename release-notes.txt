@@ -1,3 +1,13 @@
+0.4.37 - Feb 08, 2022
+---------------------
+
+- Fixed Zhongli Stele not snapshotting
+- Fixed Zhongli Stele max count incorrectly capped at 1
+- Fixed Xiao snapshot timing
+- Fixed Yunjin perfect counter. Changed to skill[perfect=1]
+- Fixed Kazuha c2 not applied to self when off-field
+
+
 0.4.36 - Feb 06, 2022
 ---------------------
 
